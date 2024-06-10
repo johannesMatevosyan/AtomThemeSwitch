@@ -1,19 +1,16 @@
 import { ReactElement, ReactNode, createContext, useEffect, useState } from "react";
-import { ThemeName } from "./theme-name";
+import { AWSContextType, ThemeName } from "./models";
 
 type ATSProps = {
   children: ReactNode;
 };
 
-export const AtomThemeDataContext = createContext<{ 
-    theme: string; 
-    setTheme: any // Dispatch<SetStateAction<"light" | "dark">>
-  }>({
+export const AtomThemeDataContext = createContext<AWSContextType>({
       theme: ThemeName.LIGHT,
-      setTheme: null
-  });
+      setTheme: () => {}
+});
 
-export function AtomThemeSwitchContext(props: ATSProps): ReactElement<{ theme: string; setTheme: any}> {
+export function AtomThemeSwitchContext(props: ATSProps): ReactElement<AWSContextType> {
     const { children } = props;
     const [theme, setTheme] = useState<`${ThemeName}`>(ThemeName.LIGHT);
 
