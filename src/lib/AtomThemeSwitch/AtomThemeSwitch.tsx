@@ -10,18 +10,16 @@ const AtomThemeSwitch: FC = (): ReactElement => {
         setTheme: any
     }>(AtomThemeDataContext);
     const onThemeChange = (event: ChangeEvent<HTMLInputElement>): void => {
-       
-        const value = event?.target?.checked;
-        if (value === true) {
-            setTheme(ThemeName.DARK);
-            setThemeName(ThemeName.DARK);
+
+        if (event?.target?.checked) {
+            setThemeData(ThemeName.DARK);
         } else {
-            setTheme(ThemeName.LIGHT);
-            setThemeName(ThemeName.LIGHT);
+            setThemeData(ThemeName.LIGHT);
         }
     };
 
-    const setThemeName = (name: string) => {
+    const setThemeData = (name: ThemeName.DARK | ThemeName.LIGHT) => {
+        setTheme(name);
         if (typeof window !== 'undefined') {
             window.localStorage.setItem('theme', name); // TODO ssr
         }
