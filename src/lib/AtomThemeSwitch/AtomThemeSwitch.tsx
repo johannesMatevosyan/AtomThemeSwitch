@@ -3,7 +3,7 @@ import { AtomThemeDataContext } from "./AtomThemeSwitchContext";
 import "./AtomThemeSwitch.css";
 import { AWSContextType, ThemeName } from "./models";
 
-const AtomThemeSwitch: FC = (): ReactElement => {
+export const AtomThemeSwitch: FC = (): ReactElement => {
 
     const { theme, setTheme } = useContext<AWSContextType>(AtomThemeDataContext);
     const onThemeChange = (event: ChangeEvent<HTMLInputElement>): void => {
@@ -34,4 +34,3 @@ const AtomThemeSwitch: FC = (): ReactElement => {
     )
 }
 
-export default AtomThemeSwitch;
