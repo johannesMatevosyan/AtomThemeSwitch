@@ -1,7 +1,6 @@
 {
   "name": "atom-theme-switch",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.0.4",
   "type": "module",
   "main": "./dist/AtomThemeSwitch.umd.cjs",
   "module": "./dist/AtomThemeSwitch.js",
