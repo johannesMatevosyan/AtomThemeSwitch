@@ -1,6 +1,6 @@
 {
   "name": "atom-theme-switch",
-  "version": "0.0.9",
+  "version": "1.0.0",
   "type": "module",
   "main": "dist/AtomThemeSwitch.umd.cjs",
   "module": "dist/AtomThemeSwitch.js",
