@@ -7,7 +7,7 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "atom-theme-switch": ["./src/lib/AtomThemeSwitch/AtomThemeSwitch.tsx"]
+      "atom-theme-switch": ["src/lib/main.ts"]
     },
     "types": [ "node" ],
     /* Bundler mode */

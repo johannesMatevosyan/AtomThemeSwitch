@@ -1,5 +1,4 @@
-import AtomThemeSwitch from 'atom-theme-switch'
-import { AtomThemeSwitchContext } from 'ats-context'
+import { AtomThemeSwitch, AtomThemeSwitchContext } from 'atom-theme-switch'
 
 function App() {
 

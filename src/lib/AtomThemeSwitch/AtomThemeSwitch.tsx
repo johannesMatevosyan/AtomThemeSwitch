@@ -1,11 +1,11 @@
 import { ChangeEvent, FC, ReactElement, useContext } from "react";
-import { AtomThemeDataContext } from "./AtomThemeSwitchContext";
 import "./AtomThemeSwitch.css";
 import { AWSContextType, ThemeName } from "./models";
+import ThemeDataContext from "./ThemeDataContext";
 
 export const AtomThemeSwitch: FC = (): ReactElement => {
 
-    const { theme, setTheme } = useContext<AWSContextType>(AtomThemeDataContext);
+    const { theme, setTheme } = useContext<AWSContextType>(ThemeDataContext);
     const onThemeChange = (event: ChangeEvent<HTMLInputElement>): void => {
         if (event?.target?.checked) {
             setThemeData(ThemeName.DARK);

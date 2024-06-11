@@ -10,7 +10,7 @@ export default defineConfig({
   build: {
     // library entry and output settings
     lib: {
-      entry: resolve(__dirname, './src/lib/AtomThemeSwitch/index.ts'),
+      entry: resolve(__dirname, './src/lib/main.ts'),
       name: 'AtomThemeSwitch',
       fileName: 'AtomThemeSwitch',
     },

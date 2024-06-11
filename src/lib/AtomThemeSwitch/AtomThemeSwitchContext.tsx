@@ -1,14 +1,10 @@
-import { ReactElement, ReactNode, createContext, useEffect, useState } from "react";
+import { ReactElement, ReactNode, useEffect, useState } from "react";
 import { AWSContextType, ThemeName } from "./models";
+import ThemeDataContext from "./ThemeDataContext";
 
 type ATSProps = {
   children: ReactNode;
 };
-
-export const AtomThemeDataContext = createContext<AWSContextType>({
-      theme: ThemeName.LIGHT,
-      setTheme: () => {}
-});
 
 export function AtomThemeSwitchContext(props: ATSProps): ReactElement<AWSContextType> {
     const { children } = props;
@@ -25,10 +21,9 @@ export function AtomThemeSwitchContext(props: ATSProps): ReactElement<AWSContext
         } else if(getTheme === ThemeName.DARK) {
           setTheme(ThemeName.DARK);
         }
-        // if state changes, repaints the app
       }, [theme]);
 
-    return <AtomThemeDataContext.Provider value={{theme, setTheme}}>
+    return <ThemeDataContext.Provider value={{theme, setTheme}}>
         {children}
-    </AtomThemeDataContext.Provider>
+    </ThemeDataContext.Provider>
 }
