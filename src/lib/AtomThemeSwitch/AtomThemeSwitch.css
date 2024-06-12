@@ -51,11 +51,20 @@ input[type=checkbox]:checked + .ats__slider:before {
   transform: translateX(26px);
 }
   
-/* Rounded ats__sliders */
+/* Rounded toggler */
 .ats__slider.round {
   border-radius: 34px;
 }
 
 .ats__slider.round:before {
   border-radius: 50%;
+}
+
+/* Square toggler */
+.ats__slider.square {
+  border-radius: 3px;
+}
+
+.ats__slider.square:before {
+  border-radius: 3px;
 }

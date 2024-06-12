@@ -3,7 +3,8 @@ import "./AtomThemeSwitch.css";
 import { AWSContextType, ThemeName } from "./models";
 import ThemeDataContext from "./ThemeDataContext";
 
-export const AtomThemeSwitch: FC = (): ReactElement => {
+export const AtomThemeSwitch: any = (props: {type: string, size: string, mode: string}): ReactElement => {
+    const {size, mode, type} = {...props}
 
     const { theme, setTheme } = useContext<AWSContextType>(ThemeDataContext);
     const onThemeChange = (event: ChangeEvent<HTMLInputElement>): void => {
@@ -23,14 +24,14 @@ export const AtomThemeSwitch: FC = (): ReactElement => {
 
     return (
         <>
-            <label className="ats__switch" title={`${theme} theme`}>
+            <label className={`ats__switch ${size} ${mode}`} title={`${theme} theme`}>
                 <input 
                     type="checkbox"
                     onChange={(e) => onThemeChange(e)} 
                     checked={theme === ThemeName.DARK ? true : false} />
-                <span className="ats__slider round"></span>
+                <span className={`ats__slider ${type}`}></span>
             </label>
-        </>
+        </> 
     )
 }
 

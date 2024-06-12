@@ -6,7 +6,11 @@ function App() {
     <>
       <div>
         <AtomThemeSwitchContext>
-          <AtomThemeSwitch />
+          <AtomThemeSwitch  
+            size = 'small' 
+            theme = 'space' 
+            type = 'square'>
+            </AtomThemeSwitch>
         </AtomThemeSwitchContext>
       </div>
     </>
