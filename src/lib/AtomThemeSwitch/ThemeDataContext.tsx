@@ -1,8 +1,8 @@
 import { createContext } from "react";
-import { AWSContextType, ThemeName } from "./models";
+import { AWSContextType, ThemeType } from "./models";
 
 const ThemeDataContext = createContext<AWSContextType>({
-    theme: ThemeName.LIGHT,
+    theme: ThemeType.LIGHT,
     setTheme: () => {}
 });
 

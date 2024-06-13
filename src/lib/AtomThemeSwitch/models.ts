@@ -1,18 +1,17 @@
-import { ChangeEvent } from "react";
 
-export enum ThemeName {
+export enum ThemeType {
     LIGHT = 'light',
     DARK = 'dark',
 }
 
 export interface AWSContextType {
     theme: string;
-    setTheme: (name: "light" | "dark") => void;
+    setTheme: (name: ThemeType) => void;
 }
 
 export interface IAtomThemeSwitch {
     size: string;
     mode: string;
     type: string;
-    sendDataToParent: (event: ChangeEvent<HTMLInputElement>) => void;
+    onChanged?: (type: ThemeType) => void;
 }
