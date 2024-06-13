@@ -10,7 +10,7 @@ function App() {
         <AtomThemeSwitchContext>
           <AtomThemeSwitch  
             size='small'
-            theme='space'
+            mode='space'
             type='square'
             sendDataToParent={getSwitchValues}
             >

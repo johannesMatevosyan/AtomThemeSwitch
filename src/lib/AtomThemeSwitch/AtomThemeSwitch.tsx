@@ -1,10 +1,15 @@
 import { ChangeEvent, ReactElement, useContext } from "react";
-import propTypes from "prop-types";
 import "./AtomThemeSwitch.css";
 import { AWSContextType, ThemeName } from "./models";
 import ThemeDataContext from "./ThemeDataContext";
 
-export const AtomThemeSwitch: any = (props: any): ReactElement<any, any> => {
+export const AtomThemeSwitch: any = (props: 
+    {
+        size: string,
+        mode: string,
+        type: string,
+        sendDataToParent: (event: ChangeEvent<HTMLInputElement>) => {}
+    }): ReactElement<any, any> => {
 
     const { theme, setTheme } = useContext<AWSContextType>(ThemeDataContext);
 
@@ -40,12 +45,5 @@ export const AtomThemeSwitch: any = (props: any): ReactElement<any, any> => {
             </label>
         </> 
     )
-}
-
-AtomThemeSwitch.propTypes = {
-    type: propTypes.string,
-    size: propTypes.string,
-    mode: propTypes.string,
-    onClick: propTypes.func,
 }
 
