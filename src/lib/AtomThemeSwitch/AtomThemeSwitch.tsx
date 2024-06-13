@@ -1,15 +1,10 @@
-import { ChangeEvent, ReactElement, useContext } from "react";
+import { ChangeEvent, JSXElementConstructor, ReactElement, ReactNode, useContext } from "react";
 import "./AtomThemeSwitch.css";
-import { AWSContextType, ThemeName } from "./models";
+import { AWSContextType, IAtomThemeSwitch, ThemeName } from "./models";
 import ThemeDataContext from "./ThemeDataContext";
 
-export const AtomThemeSwitch: any = (props: 
-    {
-        size: string,
-        mode: string,
-        type: string,
-        sendDataToParent: (event: ChangeEvent<HTMLInputElement>) => {}
-    }): ReactElement<any, any> => {
+
+export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | JSXElementConstructor<ReactNode>> => {
 
     const { theme, setTheme } = useContext<AWSContextType>(ThemeDataContext);
 
