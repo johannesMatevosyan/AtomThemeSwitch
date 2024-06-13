@@ -1,5 +1,5 @@
 import { ReactElement, ReactNode, useEffect, useState } from "react";
-import { AWSContextType, ThemeName } from "./models";
+import { AWSContextType, ThemeType } from "./models";
 import ThemeDataContext from "./ThemeDataContext";
 
 type ATSProps = {
@@ -8,18 +8,18 @@ type ATSProps = {
 
 export function AtomThemeSwitchContext(props: ATSProps): ReactElement<AWSContextType> {
     const { children } = props;
-    const [theme, setTheme] = useState<`${ThemeName}`>(ThemeName.LIGHT);
+    const [theme, setTheme] = useState<`${ThemeType}`>(ThemeType.LIGHT);
 
     useEffect(() => {
         const getTheme = window.localStorage.getItem('theme');
         if(!getTheme) {
           if (typeof window !== 'undefined') {
-            window.localStorage.setItem('theme', ThemeName.LIGHT);
+            window.localStorage.setItem('theme', ThemeType.LIGHT);
           }
-        } else if (getTheme === ThemeName.LIGHT) {
-          setTheme(ThemeName.LIGHT);
-        } else if(getTheme === ThemeName.DARK) {
-          setTheme(ThemeName.DARK);
+        } else if (getTheme === ThemeType.LIGHT) {
+          setTheme(ThemeType.LIGHT);
+        } else if(getTheme === ThemeType.DARK) {
+          setTheme(ThemeType.DARK);
         }
       }, [theme]);
 

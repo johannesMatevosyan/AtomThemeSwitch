@@ -1,26 +1,45 @@
-import { ChangeEvent, JSXElementConstructor, ReactElement, ReactNode, useContext } from "react";
+import { ChangeEvent, JSXElementConstructor, ReactElement, ReactNode, useContext, useEffect } from "react";
 import "./AtomThemeSwitch.css";
-import { AWSContextType, IAtomThemeSwitch, ThemeName } from "./models";
+import { AWSContextType, IAtomThemeSwitch, ThemeType } from "./models";
 import ThemeDataContext from "./ThemeDataContext";
 
 
 export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | JSXElementConstructor<ReactNode>> => {
 
+    const {onChanged, size, mode, type} = props;
     const { theme, setTheme } = useContext<AWSContextType>(ThemeDataContext);
 
+    useEffect(() => {
+        const scheme = 'prefers-color-scheme'
+        detectBrowserMode(scheme);
+    })
+
+    const detectBrowserMode = (scheme: string) => {
+        const lightMode = window.matchMedia && window.matchMedia(`(${scheme}: light)`).matches; // TODO check for SSR
+        const darkMode = window.matchMedia && window.matchMedia(`(${scheme}: dark)`).matches;   // TODO check for SSR
+        if (darkMode) {  // dark mode
+            console.log('dark mode')
+        } else if (lightMode) {  // light mode
+            console.log('light mode')
+        }
+    }
+
     const onThemeChange = (event: ChangeEvent<HTMLInputElement>): void => {
-        handleChange(event);
+        handleChange(event?.target?.checked);
         if (event?.target?.checked) {
-            setThemeData(ThemeName.DARK);
+            setThemeData(ThemeType.DARK);
         } else {
-            setThemeData(ThemeName.LIGHT);
+            setThemeData(ThemeType.LIGHT);
         }
     };
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        props?.sendDataToParent(event);
+    const handleChange = (type: boolean) => {
+        if(onChanged) {
+            onChanged(type ? ThemeType.DARK : ThemeType.LIGHT);
+        }
+        
     }
-    const setThemeData = (name: ThemeName.DARK | ThemeName.LIGHT) => {
+    const setThemeData = (name: ThemeType) => {
         setTheme(name);
         if (typeof window !== 'undefined') {
             window.localStorage.setItem('theme', name); // TODO check for SSR
@@ -30,13 +49,13 @@ export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | 
     return (
         <>
             <label 
-                className={`ats__switch ${props?.size} ${props?.mode}`} 
+                className={`ats__switch ${size} ${mode}`} 
                 title={`${theme} theme`}>
                 <input 
                     type="checkbox"
                     onChange={(e) => onThemeChange(e)} 
-                    checked={theme === ThemeName.DARK ? true : false} />
-                <span className={`ats__slider ${props?.type}`}></span>
+                    checked={theme === ThemeType.DARK ? true : false} />
+                <span className={`ats__slider ${type}`}></span>
             </label>
         </> 
     )

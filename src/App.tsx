@@ -1,8 +1,9 @@
 import { AtomThemeSwitch, AtomThemeSwitchContext } from 'atom-theme-switch'
+import { ThemeType } from './lib/AtomThemeSwitch/models';
 
 function App() {
 
-  const getSwitchValues = (event: React.ChangeEvent<HTMLInputElement>) => console.log(event.target.checked);
+  const getSwitchValues = (type: ThemeType) => console.log(type);
 
   return (
     <>
@@ -12,7 +13,7 @@ function App() {
             size='small'
             mode='space'
             type='square'
-            sendDataToParent={getSwitchValues}
+            onChanged={getSwitchValues}
             >
             </AtomThemeSwitch>
         </AtomThemeSwitchContext>
