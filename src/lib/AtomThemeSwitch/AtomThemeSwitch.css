@@ -9,7 +9,7 @@
   width: 60px;
   height: 34px;
 }
-.ats__switch input[type=checkbox] { 
+label.ats__switch input[type=checkbox] { 
   opacity: 0;
   width: 0;
   height: 0;
@@ -67,4 +67,83 @@ input[type=checkbox]:checked + .ats__slider:before {
 
 .ats__slider.square:before {
   border-radius: 3px;
+}
+
+/* Space mode styles  */
+label.ats__switch.space {
+  width:500px;
+  height:200px;
+  position: relative;
+  display: block;
+  background: #ebebeb;
+  border-radius: 200px;
+  box-shadow: inset 0px 5px 15px rgba(0,0,0,0.4), inset 0px -5px 15px rgba(255,255,255,0.4);
+  cursor: pointer;
+}
+label.ats__switch.space input ~ .sphere {
+  content: "";
+  width:180px;
+  height: 180px;
+  position: absolute;
+  top:10px;
+  left:10px;
+  background: linear-gradient(180deg,#ffcc89,#d8860b);
+  border-radius: 180px;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+}
+.ats__switch.space .ats__space-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 180px;
+  transition: background 1s linear;
+}
+.ats__switch.space input:checked + .ats__space-bg {
+  background: #242424;
+}
+.ats__switch.space input:checked ~ .sphere {
+  left:490px;
+  transform: translateX(-100%);
+  background: linear-gradient(180deg,#777,#3a3a3a);
+}
+.ats__switch.space, .ats__switch.space .sphere {
+  transition: 0.3s
+}
+.ats__switch.space:active .sphere { 
+  width: 260px; 
+}
+
+.ats__sun-icon, 
+.ats__moon-icon {
+  display: inline-block;
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  top:40px;
+  z-index: 100;
+}
+.ats__sun-icon {
+  left:40px;
+  fill:#fff;
+  transition: 0.3s;
+}
+.ats__moon-icon {
+  left:340px;
+  fill:#7e7e7e;
+  transition: 0.3s;
+}
+.ats__switch.space input:checked .ats__sun-icon {
+  fill:#7e7e7e;
+}
+.ats__switch.space input:checked .ats__moon-icon {
+  fill:#fff;
+}
+
+.ats__sun-icon svg, 
+.ats__moon-icon svg{
+  display: block;
+  width: 100%; 
+  height: 100%;
+  position: absolute;
+  z-index: 100;
 }

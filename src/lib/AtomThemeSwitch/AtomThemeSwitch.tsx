@@ -1,8 +1,10 @@
 import { ChangeEvent, JSXElementConstructor, ReactElement, ReactNode, useContext, useEffect } from "react";
+import SunIcon from './icons/Sun.svg';
+import MoonIcon from './icons/moon.svg';
+
 import "./AtomThemeSwitch.css";
 import { AWSContextType, IAtomThemeSwitch, ThemeType } from "./models";
 import ThemeDataContext from "./store/ThemeDataContext";
-
 
 export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | JSXElementConstructor<ReactNode>> => {
 
@@ -55,7 +57,14 @@ export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | 
                     type="checkbox"
                     onChange={(e) => onThemeChange(e)} 
                     checked={theme === ThemeType.DARK ? true : false} />
-                <span className={`ats__slider ${type}`}></span>
+                    {mode && mode === 'space' ? (
+                        <>
+                            <span className="ats__space-bg"></span>
+                            <span className="sphere"></span>
+                            <span className="ats__sun-icon"><SunIcon /></span>
+                            <span className="ats__moon-icon"><MoonIcon /></span>
+                        </>
+                    ) : <span className={`ats__slider ${type}`}></span>}
             </label>
         </> 
     )
