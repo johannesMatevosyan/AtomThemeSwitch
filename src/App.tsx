@@ -3,21 +3,22 @@ import { ThemeType } from './lib/AtomThemeSwitch/models';
 
 function App() {
 
+  const fixedPosition = {position: 'fixed', top: '0', left: '0', bottom: '0', right: '0', margin: 'auto'}
   const getSwitchValues = (type: ThemeType) => console.log(type);
 
   return (
     <>
-      <div>
         <AtomThemeSwitchContext>
           <AtomThemeSwitch  
             size='small'
             mode='space'
             type='square'
             onChanged={getSwitchValues}
+            fixedPosition={fixedPosition}
             >
             </AtomThemeSwitch>
         </AtomThemeSwitchContext>
-      </div>
+
     </>
   )
 }

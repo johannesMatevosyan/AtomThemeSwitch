@@ -1,4 +1,4 @@
-import { ChangeEvent, JSXElementConstructor, ReactElement, ReactNode, useContext, useEffect } from "react";
+import { CSSProperties, ChangeEvent, JSXElementConstructor, ReactElement, ReactNode, useContext, useEffect } from "react";
 import SunIcon from './icons/Sun.svg';
 import MoonIcon from './icons/moon.svg';
 
@@ -8,7 +8,7 @@ import ThemeDataContext from "./store/ThemeDataContext";
 
 export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | JSXElementConstructor<ReactNode>> => {
 
-    const {onChanged, size, mode, type} = props;
+    const {onChanged, size, mode, type, fixedPosition} = props;
     const { theme, setTheme } = useContext<AWSContextType>(ThemeDataContext);
 
     useEffect(() => {
@@ -48,10 +48,22 @@ export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | 
         }
     }
 
+    const position: ('absolute' | 'relative' | 'fixed') = 'fixed' 
+    const labelStyle: CSSProperties  = {
+        position: `${fixedPosition && fixedPosition.position ? position : 'static'}`,
+        top: `${fixedPosition && fixedPosition.top ? fixedPosition.top : 'unset'}`,
+        left: `${fixedPosition && fixedPosition.left ? fixedPosition.left : 'unset'}`,
+        right: `${fixedPosition && fixedPosition.right ? fixedPosition.right : 'unset'}`,
+        bottom: `${fixedPosition && fixedPosition.bottom ? fixedPosition.bottom : 'unset'}`,
+        margin: `${fixedPosition && fixedPosition.margin ? fixedPosition.margin : 'auto'}`,
+    }
+    const mainClasses = `ats__switch ${size} ${mode}`;
+
     return (
         <>
             <label 
-                className={`ats__switch ${size} ${mode}`} 
+                className={mainClasses} 
+                style={fixedPosition && fixedPosition.position ? labelStyle : {}}
                 title={`${theme} theme`}>
                 <input 
                     type="checkbox"

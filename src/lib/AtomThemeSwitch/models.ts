@@ -13,5 +13,13 @@ export interface IAtomThemeSwitch {
     size: string;
     mode: string;
     type: string;
+    fixedPosition?: {
+        position?: string,
+        top?: string,
+        right?: string,
+        left?: string,
+        bottom?: string,
+        margin?: string,
+    };
     onChanged?: (type: ThemeType) => void;
 }
