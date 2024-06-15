@@ -1,5 +1,5 @@
 import { ReactElement, ReactNode, useEffect, useState } from "react";
-import { AWSContextType, ThemeType } from "./models";
+import { AWSContextType, ThemeType } from "../models";
 import ThemeDataContext from "./ThemeDataContext";
 
 type ATSProps = {

@@ -1,7 +1,7 @@
 import { ChangeEvent, JSXElementConstructor, ReactElement, ReactNode, useContext, useEffect } from "react";
 import "./AtomThemeSwitch.css";
 import { AWSContextType, IAtomThemeSwitch, ThemeType } from "./models";
-import ThemeDataContext from "./ThemeDataContext";
+import ThemeDataContext from "./store/ThemeDataContext";
 
 
 export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | JSXElementConstructor<ReactNode>> => {
