@@ -7,10 +7,17 @@ function App() {
   useEffect(() => {
     document.documentElement.style.setProperty('--switch-height', '46px');
   }, [])
-  const fixedPosition = {position: 'fixed', top: '0', left: '0', bottom: '0', right: '0', margin: 'auto'}
+  const fixedPosition = {
+    position: 'fixed', 
+    top: '0', 
+    left: '0', 
+    bottom: '0', 
+    right: '0', 
+    margin: 'auto'}
   const customMatTheme = {
     checked: {
-      bgColor: 'blue', color: 'yellow'
+      bgColor: 'blue', 
+      color: 'yellow'
     },
     unchecked: {
       bgColor: '', color: ''
