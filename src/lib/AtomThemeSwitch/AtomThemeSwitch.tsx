@@ -1,15 +1,24 @@
-import { CSSProperties, ChangeEvent, JSXElementConstructor, ReactElement, ReactNode, useContext, useEffect } from "react";
+import { CSSProperties, ChangeEvent, JSXElementConstructor, ReactElement, ReactNode, useContext, useEffect, useState } from "react";
 import SunIcon from './icons/Sun.svg';
 import MoonIcon from './icons/moon.svg';
-
 import "./AtomThemeSwitch.css";
 import { AWSContextType, IAtomThemeSwitch, ThemeType } from "./models";
 import ThemeDataContext from "./store/ThemeDataContext";
 
 export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | JSXElementConstructor<ReactNode>> => {
 
-    const {onChanged, size, mode, type, fixedPosition} = props;
+    const {onChanged, size, mode, type, fixedPosition, customMatTheme} = props;
     const { theme, setTheme } = useContext<AWSContextType>(ThemeDataContext);
+    const [customStyle, setCustomStyle] = useState({
+            bgColor: '',
+            color: ''
+        })
+
+    useEffect(() => {
+        const c = {...customMatTheme?.checked};
+        const result = checkColors(c)
+        setColors(result.c1, result.c2);
+    }, [customMatTheme])
 
     useEffect(() => {
         const scheme = 'prefers-color-scheme'
@@ -29,8 +38,14 @@ export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | 
     const onThemeChange = (event: ChangeEvent<HTMLInputElement>): void => {
         handleChange(event?.target?.checked);
         if (event?.target?.checked) {
+            const c = {...customMatTheme?.checked};
+            const result = checkColors(c)
+            setColors(result.c1, result.c2)
             setThemeData(ThemeType.DARK);
         } else {
+            const c = {...customMatTheme?.unchecked};
+            const result = checkColors(c)
+            setColors(result.c1, result.c2)
             setThemeData(ThemeType.LIGHT);
         }
     };
@@ -47,6 +62,19 @@ export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | 
             window.localStorage.setItem('theme', name); // TODO check for SSR
         }
     }
+    const checkColors = (c: {bgColor?: string, color?: string}) => {
+        return {
+            c1: c?.bgColor ? c?.bgColor : "",
+            c2: c?.color ? c?.color : ""
+        }    
+    }
+
+    const setColors = (c1: string, c2: string): void => {
+        setCustomStyle({
+            bgColor: c1,
+            color: c2
+        });
+    }
 
     const position: ('absolute' | 'relative' | 'fixed') = 'fixed' 
     const labelStyle: CSSProperties  = {
@@ -57,6 +85,7 @@ export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | 
         bottom: `${fixedPosition && fixedPosition.bottom ? fixedPosition.bottom : 'unset'}`,
         margin: `${fixedPosition && fixedPosition.margin ? fixedPosition.margin : 'auto'}`,
     }
+
     const mainClasses = `ats__switch ${size} ${mode}`;
 
     return (
@@ -76,7 +105,13 @@ export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | 
                             <span className="ats__sun-icon"><SunIcon /></span>
                             <span className="ats__moon-icon"><MoonIcon /></span>
                         </>
-                    ) : <span className={`ats__slider ${type}`}></span>}
+                    ) : <span 
+                            className={`ats__slider ${type}`} 
+                            style={{backgroundColor: customStyle.bgColor ? customStyle.bgColor : ''}}>
+                            <span
+                                className="ats__slider-button" 
+                                style={{backgroundColor: customStyle.color ? customStyle.color : ''}}></span>
+                        </span>}
             </label>
         </> 
     )

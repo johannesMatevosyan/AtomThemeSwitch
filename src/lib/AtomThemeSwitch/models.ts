@@ -21,5 +21,16 @@ export interface IAtomThemeSwitch {
         bottom?: string,
         margin?: string,
     };
+    customMatTheme?: {
+        checked?: {
+            bgColor?: string, 
+            color?: string
+          },
+        unchecked?: {
+            bgColor?: string, 
+            color?: string,
+        }
+    }
+
     onChanged?: (type: ThemeType) => void;
 }
