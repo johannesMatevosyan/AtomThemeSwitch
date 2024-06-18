@@ -1,24 +1,20 @@
 import { Meta, StoryFn } from '@storybook/react';
 import { AtomThemeSwitch } from './AtomThemeSwitch';
+import { AtomThemeSwitchContext } from './store/AtomThemeSwitchContext';
+import { IAtomThemeSwitch } from './models';
 
 const meta: Meta<typeof AtomThemeSwitch> = {
     title: 'Switch theme',
     component: AtomThemeSwitch,
+    decorators : [
+        (Story) => (<AtomThemeSwitchContext><Story/></AtomThemeSwitchContext>)
+    ],
     argTypes: {
         mode: {
             type: 'string',
-            description: 'Different sizes available',
+            description: 'Different modes available',
             defaultValue: 'material',
             options: ['material', 'space'],
-        },
-        size: {
-            type: 'string',
-            description: 'Different sizes available',
-            defaultValue: 'medium',
-            options: ['small', 'medium', 'large'],
-            control: {
-                type: 'radio'
-            }
         },
         type: {
             type: 'string',
@@ -34,48 +30,43 @@ const meta: Meta<typeof AtomThemeSwitch> = {
 
 export default meta;
 
-interface ButtonProps {
-    type: string,
-    size: string,
-    mode: string,
-}
+const Template: StoryFn<IAtomThemeSwitch> = (args: any) => <AtomThemeSwitch {...args} />
 
-const Template: StoryFn<ButtonProps> = (args: any) => <AtomThemeSwitch {...args} />
+const fixedPosition = {
+    position: 'fixed', 
+    bottom: '20px', 
+    right: '30px'
+  }
 
-export const Default = Template.bind({});
-export const Small = Template.bind({});
-export const Large = Template.bind({});
+export const MaterialTheme = Template.bind({});
+export const Square = Template.bind({});
+export const SpaceTheme = Template.bind({});
+export const FixedPosition = Template.bind({});
 
-Default.args = {
+MaterialTheme.args = {
     type: 'round',
-    size: 'medium',
     mode: 'material',
+    checked: false,
+    onChanged: () => {}
+};
+
+Square.args = {
+    type: 'square',
+    mode: 'material',
+    checked: true,
+    onChanged: () => {}
 }
 
-Small.args = {
+SpaceTheme.args = {
     type: 'round',
-    size: 'small',
-    mode: 'material',
+    mode: 'space',
+    checked: true,
+    onChanged: () => {}
 }
 
-
-Large.args = {
+FixedPosition.args = {
     type: 'round',
-    size: 'large',
-    mode: 'material',
+    mode: 'space',
+    fixedPosition: fixedPosition,
+    onChanged: () => {}
 }
-
-
-// type Story = StoryObj<typeof AtomThemeSwitch>
-
-// export const Default: Story = {
-//     args: {
-//         children: 'Switch Theme to dark'
-//     }
-// }
-
-// export const Dark: Story = {
-//     args: {
-//         children: 'Dark theme set'
-//     }
-// }
