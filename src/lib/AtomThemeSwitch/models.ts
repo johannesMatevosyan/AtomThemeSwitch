@@ -31,6 +31,6 @@ export interface IAtomThemeSwitch {
             color?: string,
         }
     }
-
+    checked?: boolean,
     onChanged?: (type: ThemeType) => void;
 }
