@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 function App() {
 
   useEffect(() => {
-    document.documentElement.style.setProperty('--switch-height', '46px');
+    document.documentElement.style.setProperty('--switch-height', '64px');
   }, [])
   const fixedPosition = {
     position: 'fixed', 
@@ -13,7 +13,8 @@ function App() {
     left: '0', 
     bottom: '0', 
     right: '0', 
-    margin: 'auto'}
+    margin: 'auto'
+  }
   const customMatTheme = {
     checked: {
       bgColor: 'blue', 
