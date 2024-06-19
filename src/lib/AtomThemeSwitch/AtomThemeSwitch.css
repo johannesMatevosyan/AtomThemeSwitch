@@ -152,3 +152,6 @@ label.ats__switch.space input ~ .sphere {
   position: absolute;
   z-index: 100;
 }
+.fixed {
+  z-index: 10000;
+}
