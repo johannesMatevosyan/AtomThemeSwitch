@@ -54,7 +54,43 @@ Our theme switch library is designed to work seamlessly across all major web bro
 We rigorously test our library against these browsers to ensure compatibility and performance. As new browser versions are released, we update our testing process to maintain support and address any emerging issues promptly. 
 
 # Installation
+To install the package via npm, run the following command:
+
+```sh
+npm install atom-theme-switch
+```
+
 # Inital setup
+Add objects with initial values.
+```tsx
+  const customMatTheme = {
+    checked: {
+      bgColor: 'blue', 
+      color: 'white'
+    },
+    unchecked: {
+      bgColor: '', color: ''
+    }
+  }
+  const getSwitchValues = (type: ThemeType) => console.log(type);
+```
+
+Then place the code snippet written below in the of needed component to render `AtomThemeSwitch` library:
+
+```tsx
+    <AtomThemeSwitchContext>
+        <AtomThemeSwitch  
+        designType='material'
+        shape='round'
+        switchHeight='34px'
+        onChanged={getSwitchValues}
+        customMatTheme={customMatTheme}
+        >
+        </AtomThemeSwitch>
+    </AtomThemeSwitchContext>
+```
+
+
 # Options available
 
 | Argument        | Type        | Values        |
