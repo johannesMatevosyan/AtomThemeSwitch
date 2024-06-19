@@ -1,17 +1,19 @@
 import { CSSProperties, ChangeEvent, JSXElementConstructor, ReactElement, ReactNode, useContext, useEffect, useState } from "react";
-import SunIcon from './icons/Sun.svg';
+import SunIcon from './icons/Sun.svg'; 
 import MoonIcon from './icons/moon.svg';
 import "./AtomThemeSwitch.css";
 import { AWSContextType, IAtomThemeSwitch, ThemeType } from "./models";
 import ThemeDataContext from "./store/ThemeDataContext";
+
+const SCHEME = 'prefers-color-scheme'
 
 export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | JSXElementConstructor<ReactNode>> => {
 
     const {onChanged, designType, shape, fixedPosition, switchHeight, customMatTheme} = props;
     const { theme, setTheme } = useContext<AWSContextType>(ThemeDataContext);
     const [customStyle, setCustomStyle] = useState({
-            bgColor: '',
-            color: ''
+            trackColor: '',
+            thumbColor: ''
         })
     // Set adjustable height for switch button component    
     useEffect(() => {
@@ -25,16 +27,15 @@ export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | 
     }, [customMatTheme])
 
     useEffect(() => {
-        const scheme = 'prefers-color-scheme'
-        detectBrowserMode(scheme);
+        detectBrowserMode();
     })
     // detect current mode of browser
-    const detectBrowserMode = (scheme: string) => {
-        const lightMode = window.matchMedia && window.matchMedia(`(${scheme}: light)`).matches; // TODO check for SSR
-        const darkMode = window.matchMedia && window.matchMedia(`(${scheme}: dark)`).matches;   // TODO check for SSR
-        if (darkMode) {  // dark mode
+    const detectBrowserMode = (): void => {
+        const MMD = window.matchMedia;
+        const browserMode = MMD?.(`(${SCHEME}: dark)`).matches ? "dark" : "light" // TODO check for SSR  
+        if (browserMode === 'dark') {  // dark
             console.log('dark mode')
-        } else if (lightMode) {  // light mode
+        } else if (browserMode === 'light') {  // light
             console.log('light mode')
         }
     }
@@ -62,21 +63,21 @@ export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | 
     const setThemeData = (name: ThemeType) => {
         setTheme(name);
         if (typeof window !== 'undefined') {
-            window.localStorage.setItem('theme', name); // TODO check for SSR
+            window.localStorage.setItem('theme', name);
         }
     }
     // check if colors are set
-    const checkColors = (c: {bgColor?: string, color?: string}) => {
+    const checkColors = (c: {trackColor?: string, thumbColor?: string}) => {
         return {
-            c1: c?.bgColor ? c?.bgColor : "",
-            c2: c?.color ? c?.color : ""
+            c1: c?.trackColor ? c?.trackColor : "",
+            c2: c?.thumbColor ? c?.thumbColor : ""
         }    
     }
     // Set background colors for track(horizontal bar) and thumb(The circular handle that slides along the track)
     const setColors = (c1: string, c2: string): void => {
         setCustomStyle({
-            bgColor: c1,
-            color: c2
+            trackColor: c1,
+            thumbColor: c2
         });
     }
 
@@ -112,10 +113,10 @@ export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | 
                         </>
                     ) : <span 
                             className={`ats__slider ${shape}`} 
-                            style={{backgroundColor: customStyle.bgColor ? customStyle.bgColor : ''}}>
+                            style={{backgroundColor: customStyle.trackColor ? customStyle.trackColor : ''}}>
                             <span
                                 className="ats__slider-button" 
-                                style={{backgroundColor: customStyle.color ? customStyle.color : ''}}></span>
+                                style={{backgroundColor: customStyle.thumbColor ? customStyle.thumbColor : ''}}></span>
                         </span>}
             </label>
         </> 

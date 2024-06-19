@@ -24,6 +24,16 @@ const meta: Meta<typeof AtomThemeSwitch> = {
             control: {
                 type: 'radio'
             }
+        },
+        customMatTheme: {
+            checked: {
+                trackColor: 'blue', 
+                thumbColor: 'white'
+            },
+            unchecked: {
+                trackColor: 'darkblue', 
+                thumbColor: 'gray'
+            }
         }
     }
 }
@@ -36,11 +46,22 @@ const fixedPosition = {
     bottom: '20px', 
     right: '30px'
 }
+const customMatTheme = {
+    checked: {
+        trackColor: 'blue', 
+        thumbColor: 'white'
+    },
+    unchecked: {
+        trackColor: 'lightblue', 
+        thumbColor: '#ffffdd'
+    }
+}
 
 export const MaterialTheme = Template.bind({});
 export const Square = Template.bind({});
 export const SpaceTheme = Template.bind({});
 export const FixedPosition = Template.bind({});
+export const CustomMatTheme = Template.bind({});
 
 MaterialTheme.args = {
     shape: 'round',
@@ -67,5 +88,12 @@ FixedPosition.args = {
     shape: 'round',
     designType: 'space',
     fixedPosition: fixedPosition,
+    onChanged: () => {}
+}
+
+CustomMatTheme.args = {
+    shape: 'round',
+    designType: 'material',
+    customMatTheme: customMatTheme,
     onChanged: () => {}
 }

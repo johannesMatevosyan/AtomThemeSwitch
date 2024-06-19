@@ -1,4 +1,4 @@
-import { AtomThemeSwitch, AtomThemeSwitchContext } from 'atom-theme-switch'
+import { AtomThemeSwitch, AtomThemeSwitchContext } from 'atom-theme-switch' // add in readme
 import { ThemeType } from './lib/AtomThemeSwitch/models';
 
 function App() {
@@ -14,11 +14,12 @@ function App() {
   }
   const customMatTheme = {
     checked: {
-      bgColor: 'blue', 
-      color: 'white'
+      trackColor: 'blue', 
+      thumbColor: 'white'
     },
     unchecked: {
-      bgColor: '', color: ''
+      trackColor: '', 
+      thumbColor: ''
     }
   }
   const getSwitchValues = (type: ThemeType) => console.log(type);
@@ -27,9 +28,9 @@ function App() {
     <>
         <AtomThemeSwitchContext>
           <AtomThemeSwitch  
-            designType='space'
-            shape='round'
-            switchHeight='32px'
+            designType='material'
+            shape='squere'
+            switchHeight='64px'
             onChanged={getSwitchValues}
             fixedPosition={fixedPosition}
             customMatTheme={customMatTheme}

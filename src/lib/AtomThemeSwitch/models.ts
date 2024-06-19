@@ -10,8 +10,8 @@ export interface AWSContextType {
 }
 
 export interface IThemeCustomColors {
-    bgColor?: string, 
-    color?: string
+    trackColor?: string, 
+    thumbColor?: string
 }
 
 export interface IFixedPosition {
