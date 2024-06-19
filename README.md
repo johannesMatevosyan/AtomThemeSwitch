@@ -59,15 +59,21 @@ npm install atom-theme-switch
 ```
 
 # Inital setup
-Add objects with initial values.
+Add package imports at the top of your component
+
+```tsx
+import { AtomThemeSwitch, AtomThemeSwitchContext } from 'atom-theme-switch'
+```
+Set initial values for property objects.
 ```tsx
   const customMatTheme = {
     checked: {
-      bgColor: 'blue', 
-      color: 'white'
+      trackColor: 'blue', 
+      thumbColor: 'white'
     },
     unchecked: {
-      bgColor: '', color: ''
+      trackColor: '', 
+      thumbColor: ''
     }
   }
   const getSwitchValues = (type: ThemeType) => console.log(type);
@@ -97,7 +103,7 @@ Then place the code snippet written below in the of needed component to render `
 | shape           | String      | round  \| square   |
 | switchHeight    | String      | '32px'   |
 | fixedPosition   | Object      | { **position**: 'fixed', **left**: '0', **bottom**: '0', **right**: '0', **margin**: 'unset',**transform**: 'none'}   |
-| customMatTheme  | Object      |  {  **checked**: { bgColor: 'blue', color: 'white'},  **unchecked**: {bgColor: '', color: ''}}|
+| customMatTheme  | Object      |  {  **checked**: { trackColor: 'blue', thumbColor: 'white'},  **unchecked**: {trackColor: '', thumbColor: ''}}|
 | onChanged       | Event       | (type: 'light' \| 'dark') => void    |
 
 ## Toggle Between Design Modes
