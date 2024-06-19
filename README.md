@@ -59,7 +59,12 @@ npm install atom-theme-switch
 ```
 
 # Inital setup
-Add objects with initial values.
+Add package imports at the top of your component
+
+```tsx
+import { AtomThemeSwitch, AtomThemeSwitchContext } from 'atom-theme-switch'
+```
+Set initial values for property objects.
 ```tsx
   const customMatTheme = {
     checked: {
