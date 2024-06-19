@@ -1,7 +1,5 @@
 # AtomThemeSwitch library for React.js
 
-# Features
-
 ## Seamless Theme Switching
 Easily toggle between light and dark modes or any custom themes with minimal setup. The library provides a simple API to switch themes dynamically, ensuring a smooth user experience.
 
@@ -102,18 +100,51 @@ Then place the code snippet written below in the of needed component to render `
 | customMatTheme  | Object      |  {  **checked**: { bgColor: 'blue', color: 'white'},  **unchecked**: {bgColor: '', color: ''}}|
 | onChanged       | Event       | (type: 'light' \| 'dark') => void    |
 
+## Toggle Between Design Modes
+The switch button enables users to toggle between two design modes, these are: `material` and `space`.
+
+## Flexible Design Customization
+Enhance user experience with our switch button's design customization options. Seamlessly toggle between different shapes - square and round to perfectly complement your application's visual style. 
+
 ## Adjustable Switch Button Height
 **AtomThemeSwitch** component offers dynamic height adjustment capabilities using modern CSS features such as `calc()` and `var()`. These functions provide flexibility and ease in customizing the appearance of the switch button to fit your design needs. Thus, by setting values in pixels for `switchHeight` property will adjust the size of entire component on the fly.
 
 ## Fixed Positioning
-In CSS, the fixed position property is used to position an element relative to the viewport, which means it stays in the same place even if the page is scrolled. Therefore one needs to set `position: 'fixed'` in `fixedPosition` object, without that the rest of properties in `fixedPosition` object will not work.
+In CSS, the fixed position property is used to position an element relative to the viewport, which means it stays in the same place even if the page is scrolled. In order to make switch button fixed positioned add `fixedPosotion` object provide corresponding entry in component snippet. 
+
+*** Note: *** If you are going to enable fixed positioning then  `position: 'fixed'` porperty is required, without that the rest of properties in `fixedPosition` object will not work.
+
+```tsx
+  const fixedPosition = {
+    position: 'fixed', 
+    top: '0', 
+    left: '0', 
+    bottom: '0', 
+    right: '0', 
+    margin: 'auto',
+    transform: 'translate(-50%, -50%)',
+  }
+```
+Next, include object in the proeprties list of component.
+
+```tsx
+    <AtomThemeSwitchContext>
+        <AtomThemeSwitch  
+        designType='material'
+        shape='round'
+        fixedPosition={fixedPosition}
+        customMatTheme={customMatTheme}
+        >
+        </AtomThemeSwitch>
+    </AtomThemeSwitchContext>
+```
 
  - `position: fixed;`: This positions the element relative to the browser window (viewport).
  - `top: 0;`: This positions the element 0 pixels from the top of the viewport.
  - `left: 0;`: This positions the element 0 pixels from the left of the viewport.
  - `right: 0;`: This positions the element 0 pixels from the right of the viewport.
  - `bottom: 0;`: This positions the element 0 pixels from the bottom of the viewport.
- - `margin: 100px;`: offset the element within mentioned amount.
+ - `margin: auto;`: offset the element within mentioned amount.
  - `transform: translate(X, Y);`: This moves the element within its own width and height.
 
 
