@@ -29,7 +29,7 @@ function App() {
           <AtomThemeSwitch  
             designType='material'
             shape='round'
-            switchHeight='22px'
+            switchHeight='34px'
             onChanged={getSwitchValues}
             fixedPosition={fixedPosition}
             customMatTheme={customMatTheme}
