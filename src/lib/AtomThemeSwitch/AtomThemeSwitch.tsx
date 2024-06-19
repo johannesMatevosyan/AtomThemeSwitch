@@ -7,7 +7,7 @@ import ThemeDataContext from "./store/ThemeDataContext";
 
 export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | JSXElementConstructor<ReactNode>> => {
 
-    const {onChanged, size, mode, type, fixedPosition, customMatTheme} = props;
+    const {onChanged, designType, shape, fixedPosition, customMatTheme} = props;
     const { theme, setTheme } = useContext<AWSContextType>(ThemeDataContext);
     const [customStyle, setCustomStyle] = useState({
             bgColor: '',
@@ -68,7 +68,6 @@ export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | 
             c2: c?.color ? c?.color : ""
         }    
     }
-
     const setColors = (c1: string, c2: string): void => {
         setCustomStyle({
             bgColor: c1,
@@ -84,9 +83,10 @@ export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | 
         right: `${fixedPosition && fixedPosition.right ? fixedPosition.right : 'unset'}`,
         bottom: `${fixedPosition && fixedPosition.bottom ? fixedPosition.bottom : 'unset'}`,
         margin: `${fixedPosition && fixedPosition.margin ? fixedPosition.margin : 'auto'}`,
+        transform: `${fixedPosition && fixedPosition.transform ? fixedPosition.transform : 'none'}`,
     }
 
-    const mainClasses = `ats__switch ${size} ${mode}`;
+    const mainClasses = `ats__switch ${designType}`;
 
     return (
         <>
@@ -98,7 +98,7 @@ export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | 
                     type="checkbox"
                     onChange={(e) => onThemeChange(e)} 
                     checked={theme === ThemeType.DARK ? true : false} />
-                    {mode && mode === 'space' ? (
+                    {designType && designType === 'space' ? (
                         <>
                             <span className="ats__space-bg"></span>
                             <span className="sphere"></span>
@@ -106,7 +106,7 @@ export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | 
                             <span className="ats__moon-icon"><MoonIcon /></span>
                         </>
                     ) : <span 
-                            className={`ats__slider ${type}`} 
+                            className={`ats__slider ${shape}`} 
                             style={{backgroundColor: customStyle.bgColor ? customStyle.bgColor : ''}}>
                             <span
                                 className="ats__slider-button" 

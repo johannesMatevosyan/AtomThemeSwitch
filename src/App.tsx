@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 function App() {
 
   useEffect(() => {
-    document.documentElement.style.setProperty('--switch-height', '64px');
+    document.documentElement.style.setProperty('--switch-height', '32px');
   }, [])
   const fixedPosition = {
     position: 'fixed', 
@@ -13,12 +13,13 @@ function App() {
     left: '0', 
     bottom: '0', 
     right: '0', 
-    margin: 'auto'
+    margin: 'auto',
+    transform: 'translate(-50%, -50%)',
   }
   const customMatTheme = {
     checked: {
       bgColor: 'blue', 
-      color: 'yellow'
+      color: 'white'
     },
     unchecked: {
       bgColor: '', color: ''
@@ -30,9 +31,8 @@ function App() {
     <>
         <AtomThemeSwitchContext>
           <AtomThemeSwitch  
-            size='small'
-            mode='material'
-            type='round'
+            designType='material'
+            shape='round'
             onChanged={getSwitchValues}
             fixedPosition={fixedPosition}
             customMatTheme={customMatTheme}

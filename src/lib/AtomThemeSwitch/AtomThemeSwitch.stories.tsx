@@ -10,13 +10,13 @@ const meta: Meta<typeof AtomThemeSwitch> = {
         (Story) => (<AtomThemeSwitchContext><Story/></AtomThemeSwitchContext>)
     ],
     argTypes: {
-        mode: {
+        designType: {
             type: 'string',
-            description: 'Different modes available',
+            description: 'Two different designs available',
             defaultValue: 'material',
             options: ['material', 'space'],
         },
-        type: {
+        shape: {
             type: 'string',
             description: 'Type of switch',
             defaultValue: 'round',
@@ -31,12 +31,11 @@ const meta: Meta<typeof AtomThemeSwitch> = {
 export default meta;
 
 const Template: StoryFn<IAtomThemeSwitch> = (args: any) => <AtomThemeSwitch {...args} />
-
 const fixedPosition = {
     position: 'fixed', 
     bottom: '20px', 
     right: '30px'
-  }
+}
 
 export const MaterialTheme = Template.bind({});
 export const Square = Template.bind({});
@@ -44,29 +43,29 @@ export const SpaceTheme = Template.bind({});
 export const FixedPosition = Template.bind({});
 
 MaterialTheme.args = {
-    type: 'round',
-    mode: 'material',
+    shape: 'round',
+    designType: 'material',
     checked: false,
     onChanged: () => {}
 };
 
 Square.args = {
-    type: 'square',
-    mode: 'material',
+    shape: 'square',
+    designType: 'material',
     checked: true,
     onChanged: () => {}
 }
 
 SpaceTheme.args = {
-    type: 'round',
-    mode: 'space',
+    shape: 'round',
+    designType: 'space',
     checked: true,
     onChanged: () => {}
 }
 
 FixedPosition.args = {
-    type: 'round',
-    mode: 'space',
+    shape: 'round',
+    designType: 'space',
     fixedPosition: fixedPosition,
     onChanged: () => {}
 }

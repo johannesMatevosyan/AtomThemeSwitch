@@ -1,7 +1,7 @@
 # AtomThemeSwitch library for React.js
 
 # Features
-Seamless Theme Switching
+# Seamless Theme Switching
 Easily toggle between light and dark modes or any custom themes with minimal setup. The library provides a simple API to switch themes dynamically, ensuring a smooth user experience.
 
 
@@ -59,21 +59,15 @@ We rigorously test our library against these browsers to ensure compatibility an
 # Inital setup
 # Options available
 
-| Argument        | type        | Values        |
+| Argument        | Type        | Values        |
 | -------------   |:-----------:|:------------|
 | designType      | String      | material \| space  |
 | shape           | String      | round  \| square    |
 | switchHeight    | String      | '32px'   |
 | fixedPosition   | Object      | { **position**: 'fixed', **left**: '0', **bottom**: '0', **right**: '0', **margin**: 'unset',**transform**: 'none'}   |
-|customMatTheme  | Object      |  {  **checked**: { bgColor: 'blue', color: 'white'},  **unchecked**: {bgColor: '', color: ''}}|
-| onChanged      | Event      | (type: 'light' \| 'dark') => void    |
+| customMatTheme  | Object      |  {  **checked**: { bgColor: 'blue', color: 'white'},  **unchecked**: {bgColor: '', color: ''}}|
+| onChanged       | Event       | (type: 'light' \| 'dark') => void    |
 
-## SVG icons used          
-SVG icons taken from 
-
-- [SVG Repo] - fast node.js network app framework
-
- [SVG Repo]: <https://www.svgrepo.com/>
 
 ## fixedPosition
 
@@ -86,3 +80,11 @@ In CSS, the fixed position property is used to position an element relative to t
  - `bottom: 0;`: This positions the element 0 pixels from the bottom of the viewport.
  - `margin: 100px;`: offset the element within mentioned amount.
  - `transform: translate(X, Y);`: This moves the element within its own width and height.
+
+
+## SVG icons used          
+SVG icons taken from 
+
+- [SVG Repo] - fast node.js network app framework
+
+ [SVG Repo]: <https://www.svgrepo.com/>

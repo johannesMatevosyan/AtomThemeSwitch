@@ -25,8 +25,9 @@ export interface IFixedPosition {
 }
 
 export interface IAtomThemeSwitch {
-    mode: string;
-    type: string;
+    designType: string;
+    shape: string;
+    switchHeight?: string;
     fixedPosition?: IFixedPosition;
     customMatTheme?: {
         checked?: IThemeCustomColors,
