@@ -27,9 +27,9 @@ function App() {
     <>
         <AtomThemeSwitchContext>
           <AtomThemeSwitch  
-            designType='material'
+            designType='space'
             shape='round'
-            switchHeight='34px'
+            switchHeight='32px'
             onChanged={getSwitchValues}
             fixedPosition={fixedPosition}
             customMatTheme={customMatTheme}
