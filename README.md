@@ -118,7 +118,7 @@ Enhance user experience with our switch button's design customization options. S
 ## Fixed Positioning
 In CSS, the fixed position property is used to position an element relative to the viewport, which means it stays in the same place even if the page is scrolled. In order to make switch button fixed positioned add `fixedPosotion` object provide corresponding entry in component snippet. 
 
-*** Note: *** If you are going to enable fixed positioning then  `position: 'fixed'` porperty is required, without that the rest of properties in `fixedPosition` object will not work.
+***Note:*** If you are going to enable fixed positioning then  `position: 'fixed'` porperty is required, without that the rest of properties in `fixedPosition` object will not work.
 
 ```tsx
   const fixedPosition = {
