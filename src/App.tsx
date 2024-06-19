@@ -1,4 +1,4 @@
-import { AtomThemeSwitch, AtomThemeSwitchContext } from 'atom-theme-switch' // add in readme
+import { AtomThemeSwitch, AtomThemeSwitchContext } from 'atom-theme-switch'
 import { ThemeType } from './lib/AtomThemeSwitch/models';
 
 function App() {
