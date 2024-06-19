@@ -1,12 +1,8 @@
 import { AtomThemeSwitch, AtomThemeSwitchContext } from 'atom-theme-switch'
 import { ThemeType } from './lib/AtomThemeSwitch/models';
-import { useEffect } from 'react';
 
 function App() {
 
-  useEffect(() => {
-    document.documentElement.style.setProperty('--switch-height', '32px');
-  }, [])
   const fixedPosition = {
     position: 'fixed', 
     top: '0', 
@@ -33,6 +29,7 @@ function App() {
           <AtomThemeSwitch  
             designType='material'
             shape='round'
+            switchHeight='22px'
             onChanged={getSwitchValues}
             fixedPosition={fixedPosition}
             customMatTheme={customMatTheme}

@@ -60,18 +60,19 @@ We rigorously test our library against these browsers to ensure compatibility an
 # Options available
 
 | Argument        | Type        | Values        |
-| -------------   |:-----------:|:------------|
+| -------------   |:-----------:|:------------  |
 | designType      | String      | material \| space  |
-| shape           | String      | round  \| square    |
+| shape           | String      | round  \| square   |
 | switchHeight    | String      | '32px'   |
 | fixedPosition   | Object      | { **position**: 'fixed', **left**: '0', **bottom**: '0', **right**: '0', **margin**: 'unset',**transform**: 'none'}   |
 | customMatTheme  | Object      |  {  **checked**: { bgColor: 'blue', color: 'white'},  **unchecked**: {bgColor: '', color: ''}}|
 | onChanged       | Event       | (type: 'light' \| 'dark') => void    |
 
+## Adjustable Switch Button Height
+**AtomThemeSwitch** component offers dynamic height adjustment capabilities using modern CSS features such as `calc()` and `var()`. These functions provide flexibility and ease in customizing the appearance of the switch button to fit your design needs. Thus, by setting values in pixels for `switchHeight` property will adjust the size of entire component on the fly.
 
-## fixedPosition
-
-In CSS, the fixed position property is used to position an element relative to the viewport, which means it stays in the same place even if the page is scrolled. Therefore one needs to set `position: 'fixed'`, without that the rest of properties et in `fixedPosition` object will not work.
+## Fixed Positioning
+In CSS, the fixed position property is used to position an element relative to the viewport, which means it stays in the same place even if the page is scrolled. Therefore one needs to set `position: 'fixed'` in `fixedPosition` object, without that the rest of properties in `fixedPosition` object will not work.
 
  - `position: fixed;`: This positions the element relative to the browser window (viewport).
  - `top: 0;`: This positions the element 0 pixels from the top of the viewport.
