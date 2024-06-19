@@ -1,44 +1,42 @@
 # AtomThemeSwitch library for React.js
 
 # Features
-# Seamless Theme Switching
+
+## Seamless Theme Switching
 Easily toggle between light and dark modes or any custom themes with minimal setup. The library provides a simple API to switch themes dynamically, ensuring a smooth user experience.
 
-
-
-# Persistent Theme Preferences
+## Persistent Theme Preferences
 Automatically save and load user theme preferences using local storage mechanism. This ensures that users' theme choices are remembered across sessions.
 
-# Responsive Design
+## Responsive Design
 Ensure your themes look great on any device. The library is designed with responsive design principles in mind, providing a consistent experience across desktops, tablets, and mobile devices.
 
-# Accessibility Support
+## Accessibility Support
 Improve accessibility with high-contrast themes and easy-to-read font options. The library includes features to help you build applications that are accessible to all users, including those with visual impairments.
 
-# Easy Integration
+## Easy Integration
 Integrate the theme switch functionality into your existing React project with minimal effort. The library is designed to be easy to set up and use, with comprehensive documentation and examples.
 
-# Performance Optimized
+## Performance Optimized
 Built with performance in mind, the library ensures that theme switching is fast and does not degrade the performance of your application. Efficient use of resources and optimized rendering ensure a smooth experience.
 
-# Theming Context API
+## Theming Context API
 Leverage the power of React's Context API to manage theme state globally across your application. The library provides a robust context implementation for managing and accessing theme data.
 
-# Developer-Friendly
+## Developer-Friendly
 Enjoy a developer-friendly experience with TypeScript support, detailed documentation, and an active community. The library is designed to be intuitive and easy to use, with helpful resources available to get you started quickly.
-
 
 ## Customizable Themes
 Define your own themes with full control over colors, fonts, and styles. The library supports a wide range of customization options, allowing you to create a unique look and feel for your application.
 
-# Compatibility
+## Compatibility
 Compatible with major React frameworks and libraries such as Next.js, Gatsby, and Create React App. The library works seamlessly with popular tools and frameworks, ensuring broad compatibility.
 
-# Browser support 
+## Browser support 
 
 Our theme switch library is designed to work seamlessly across all major web browsers, ensuring a consistent and reliable user experience for all your site visitors. We continuously test and optimize our library to support the following browsers:
 
-## Supported Browsers
+### Web Browsers
 
  - Google Chrome: Latest 2 versions
  - Mozilla Firefox: Latest 2 versions
@@ -46,7 +44,7 @@ Our theme switch library is designed to work seamlessly across all major web bro
  - Microsoft Edge: Latest 2 versions
  - Opera: Latest 2 versions
  - Internet Explorer: Version 11 and above (basic support)
-## Mobile Browsers
+### Mobile Browsers
 
  - Chrome for Android: Latest 2 versions
  - Firefox for Android: Latest 2 versions
