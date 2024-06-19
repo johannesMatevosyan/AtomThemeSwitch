@@ -1,9 +1,44 @@
 {
   "name": "atom-theme-switch",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "module",
   "main": "dist/AtomThemeSwitch.umd.cjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/johannesMatevosyan/AtomThemeSwitch.git"
+  },
+  "homepage": "https://github.com/johannesMatevosyan/AtomThemeSwitch#readme",
+  "bugs": {
+    "url": "https://github.com/johannesMatevosyan/AtomThemeSwitch/issues"
+  },
   "module": "dist/AtomThemeSwitch.js",
+  "description": "A React component for switching between light and dark themes",
+  "keywords": [
+    "theme",
+    "switch",
+    "toggle",
+    "theme-switch",
+    "theme-toggle",
+    "react",
+    "react-component",
+    "reactjs",
+    "dark-mode",
+    "light-mode",
+    "theme-provider",
+    "theme-switcher",
+    "custom-checkbox",
+    "color-scheme",
+    "ui",
+    "user-preferences",
+    "customization",
+    "accessibility",
+    "frontend",
+    "ui-component",
+    "user-experience",
+    "javascript"
+  ],
+  "author": "Hovhannes Matevosyan",
+  "license": "MIT",
   "exports": {
     ".": {
       "import": "./dist/AtomThemeSwitch.js",
