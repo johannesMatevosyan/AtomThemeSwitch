@@ -32,7 +32,7 @@ export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | 
     // detect current mode of browser
     const detectBrowserMode = (): void => {
         const MMD = window.matchMedia;
-        const browserMode = MMD?.(`(${SCHEME}: dark)`).matches ? "dark" : "light" // TODO check for SSR  
+        const browserMode = MMD?.(`(${SCHEME}: dark)`).matches ? "dark" : "light" 
         if (browserMode === 'dark') {  // dark
             console.log('dark mode')
         } else if (browserMode === 'light') {  // light
