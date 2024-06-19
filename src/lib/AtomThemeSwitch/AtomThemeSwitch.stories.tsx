@@ -18,7 +18,7 @@ const meta: Meta<typeof AtomThemeSwitch> = {
         },
         shape: {
             type: 'string',
-            description: 'Type of switch',
+            description: 'Type of switch, with rounded and squere design available',
             defaultValue: 'round',
             options: ['round', 'square'],
             control: {
