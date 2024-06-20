@@ -2,22 +2,33 @@ import { CSSProperties, ChangeEvent, JSXElementConstructor, ReactElement, ReactN
 import SunIcon from './icons/Sun.svg'; 
 import MoonIcon from './icons/moon.svg';
 import "./AtomThemeSwitch.css";
-import { AWSContextType, IAtomThemeSwitch, ThemeType } from "./models";
+import { AWSContextType, IAtomThemeSwitch, ICheckColors, ICheckedColors, ThemeType } from "./models";
 import ThemeDataContext from "./store/ThemeDataContext";
+import { setThemeName } from "./theme-manager";
 
-const SCHEME = 'prefers-color-scheme'
+const SCHEME = 'prefers-color-scheme';
+const SWH = '--switch-height';
 
 export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | JSXElementConstructor<ReactNode>> => {
 
-    const {onChanged, designType, shape, fixedPosition, switchHeight, customMatTheme} = props;
+    const {
+        designType, 
+        shape, 
+        fixedPosition, 
+        selectedTheme, 
+        switchHeight, 
+        customMatTheme,
+        onChanged, 
+        handleBrowserMode
+    } = props;
     const { theme, setTheme } = useContext<AWSContextType>(ThemeDataContext);
-    const [customStyle, setCustomStyle] = useState({
+    const [customStyle, setCustomStyle] = useState<ICheckColors>({
             trackColor: '',
             thumbColor: ''
         })
     // Set adjustable height for switch button component    
     useEffect(() => {
-        document.documentElement.style.setProperty('--switch-height', switchHeight ? switchHeight : '32px');
+        document.documentElement.style.setProperty(SWH, switchHeight ? switchHeight : '32px');
     }, [])
     // check and load colors for track and thumb
     useEffect(() => {
@@ -25,20 +36,20 @@ export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | 
         const result = checkColors(c)
         setColors(result.c1, result.c2);
     }, [customMatTheme])
-
-    useEffect(() => {
-        detectBrowserMode();
-    })
     // detect current mode of browser
-    const detectBrowserMode = (): void => {
+    useEffect(() => {
         const MMD = window.matchMedia;
         const browserMode = MMD?.(`(${SCHEME}: dark)`).matches ? "dark" : "light" 
-        if (browserMode === 'dark') {  // dark
-            console.log('dark mode')
-        } else if (browserMode === 'light') {  // light
-            console.log('light mode')
+        if (browserMode === 'dark') {
+            if(handleBrowserMode) {
+                handleBrowserMode({system: 'dark'})
+            }
+        } else if (browserMode === 'light') {
+            if(handleBrowserMode) {
+                handleBrowserMode({system: 'light'})
+            }
         }
-    }
+    }, [])
     // toggle between on/off states
     const onThemeChange = (event: ChangeEvent<HTMLInputElement>): void => {
         handleChange(event?.target?.checked);
@@ -55,19 +66,19 @@ export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | 
         }
     };
     
-    const handleChange = (type: boolean) => {
+    const handleChange = (type: boolean): void => {
         if(onChanged) {
             onChanged(type ? ThemeType.DARK : ThemeType.LIGHT);
         }
     }
-    const setThemeData = (name: ThemeType) => {
+    const setThemeData = (name: ThemeType): void => {
         setTheme(name);
         if (typeof window !== 'undefined') {
-            window.localStorage.setItem('theme', name);
+            setThemeName(selectedTheme, name);
         }
     }
     // check if colors are set
-    const checkColors = (c: {trackColor?: string, thumbColor?: string}) => {
+    const checkColors = (c: ICheckColors): ICheckedColors  => {
         return {
             c1: c?.trackColor ? c?.trackColor : "",
             c2: c?.thumbColor ? c?.thumbColor : ""
@@ -91,7 +102,6 @@ export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | 
         margin: `${fixedPosition && fixedPosition.margin ? fixedPosition.margin : 'auto'}`,
         transform: `${fixedPosition && fixedPosition.transform ? fixedPosition.transform : 'none'}`,
     }
-
     const mainClasses = `ats__switch ${designType}`;
 
     return (

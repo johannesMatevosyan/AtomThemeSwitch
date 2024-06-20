@@ -1,24 +1,20 @@
-import { ReactElement, ReactNode, useEffect, useState } from "react";
-import { AWSContextType, ThemeType } from "../models";
+import { ReactElement, useEffect, useState } from "react";
+import { AWSContextType, ThemeType, ATSContextProps } from "../models";
 import ThemeDataContext from "./ThemeDataContext";
+import { setThemeName, getThemeName } from "../theme-manager";
 
-type ATSProps = {
-  children: ReactNode;
-};
 
-export function AtomThemeSwitchContext(props: ATSProps): ReactElement<AWSContextType> {
-    const { children } = props;
+export function AtomThemeSwitchContext(props: ATSContextProps): ReactElement<AWSContextType> {
+    const { children, selectedTheme } = props;
     const [theme, setTheme] = useState<`${ThemeType}`>(ThemeType.LIGHT);
 
     useEffect(() => {
-        const getTheme = window.localStorage.getItem('theme');
-        if(!getTheme) {
-          if (typeof window !== 'undefined') {
-            window.localStorage.setItem('theme', ThemeType.LIGHT);
-          }
-        } else if (getTheme === ThemeType.LIGHT) {
+        const result = getThemeName(selectedTheme)
+        if(!result) { // if theme name is not defined then set to 'light'
+          setThemeName(selectedTheme, ThemeType.LIGHT)
+        } else if (result === ThemeType.LIGHT) {
           setTheme(ThemeType.LIGHT);
-        } else if(getTheme === ThemeType.DARK) {
+        } else if(result === ThemeType.DARK) {
           setTheme(ThemeType.DARK);
         }
       }, [theme]);

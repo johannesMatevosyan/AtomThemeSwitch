@@ -25,6 +25,15 @@ const meta: Meta<typeof AtomThemeSwitch> = {
                 type: 'radio'
             }
         },
+        selectedTheme: {
+            type: 'string',
+            description: 'Define custom variable name for a local storage key that will store a theme value',
+            defaultValue: 'round',
+            options: ['round', 'square'],
+            control: {
+                type: 'radio'
+            }
+        },
         customMatTheme: {
             checked: {
                 trackColor: 'blue', 
@@ -62,6 +71,7 @@ export const Square = Template.bind({});
 export const SpaceTheme = Template.bind({});
 export const FixedPosition = Template.bind({});
 export const CustomMatTheme = Template.bind({});
+export const SelectedTheme = Template.bind({});
 
 MaterialTheme.args = {
     shape: 'round',
@@ -94,6 +104,14 @@ FixedPosition.args = {
 CustomMatTheme.args = {
     shape: 'round',
     designType: 'material',
+    customMatTheme: customMatTheme,
+    onChanged: () => {}
+}
+
+SelectedTheme.args = {
+    shape: 'round',
+    designType: 'material',
+    selectedTheme: 'selectedTheme',
     customMatTheme: customMatTheme,
     onChanged: () => {}
 }

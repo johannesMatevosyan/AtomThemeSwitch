@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 
 export enum ThemeType {
     LIGHT = 'light',
@@ -28,6 +29,7 @@ export interface IAtomThemeSwitch {
     designType: string;
     shape: string;
     switchHeight?: string;
+    selectedTheme?: string;
     fixedPosition?: IFixedPosition;
     customMatTheme?: {
         checked?: IThemeCustomColors,
@@ -35,4 +37,20 @@ export interface IAtomThemeSwitch {
     }
     checked?: boolean,
     onChanged?: (type: ThemeType) => void;
+    handleBrowserMode?: (mode: {system: string}) => void;
 }
+
+export interface ICheckColors {
+    trackColor?: string, 
+    thumbColor?: string
+}
+
+export interface ICheckedColors {
+    c1: string, 
+    c2: string
+}
+
+export type ATSContextProps = {
+  selectedTheme?: string;
+  children: ReactNode;
+};
