@@ -100,13 +100,18 @@ Then place the code snippet written below in the of needed component to render `
 | onChanged         | Event       | (type: 'light' \| 'dark') => void         |
 | handleBrowserMode | Event       | (type: mode: {system: string}) => void    |
 
-## Toggle Between Design Modes
-The switch button enables users to toggle between two design modes, these are: `material` and `space`.
+## Design Customization - Toggle Between Different Modes
+The **AtomThemeSwitch** component provides an intuitive way for users to toggle between different visual themes in a React.js application. Hence, the switch button allows users to choose between two distinct design types: Material and Space.
+
+Material design offers a clean and modern look, following the principles of Material Design.
 
 ![chrome_Ta0SASSZol](https://github.com/johannesMatevosyan/AtomThemeSwitch/assets/2904795/c5e0af75-2705-4843-9c04-8da6ec9887ca)
 
+Space design provides a more futuristic and open layout, perfect for applications needing a unique visual identity.
 
 ![space-theme](https://github.com/johannesMatevosyan/AtomThemeSwitch/assets/2904795/53d33a83-ee7a-46ce-abc0-5570dff223b3)
+
+With this component, you can easily switch between different visual themes, offering a more personalized user experience.
 
 ## Flexible Design Customization
 Enhance user experience with our switch button's design customization options. Seamlessly toggle between different shapes - square and round to perfectly complement your application's visual style. 
