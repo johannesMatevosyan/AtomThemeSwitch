@@ -122,7 +122,7 @@ Enhance user experience with our switch button's design customization options. S
 ## Adjustable Switch Button Height
 **AtomThemeSwitch** component offers dynamic height adjustment capabilities using modern CSS features such as `calc()` and `var()`. These functions provide flexibility and ease in customizing the appearance of the switch button to fit your design needs. Thus, by setting values in pixels for `switchHeight` property will adjust the size of entire component on the fly.
 
-![switchHeight](https://github.com/johannesMatevosyan/AtomThemeSwitch/assets/2904795/e360e6dc-cbc0-4e0f-b7e4-d5d1afbbd74e)
+![switchHeight](https://github.com/johannesMatevosyan/AtomThemeSwitch/assets/2904795/176f6124-e3c2-48b6-a81c-4d133d3ef8ba)
 
 
 ## Dynamic variable name for a local storage key 
