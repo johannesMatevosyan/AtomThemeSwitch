@@ -116,7 +116,7 @@ With this component, you can easily switch between different visual themes, offe
 ## Flexible Design Customization
 Enhance user experience with our switch button's design customization options. Seamlessly toggle between different shapes - `square`  and `round`  to perfectly complement your application's visual style. 
 
-![chrome_eDOX8U4Jqe](https://github.com/johannesMatevosyan/AtomThemeSwitch/assets/2904795/6dbf04c1-c554-4921-8002-7022033558f6)
+![image](https://github.com/johannesMatevosyan/AtomThemeSwitch/assets/2904795/4fd3a7e8-fb0c-4886-9d47-9922d8729f18)
 
 
 ## Adjustable Switch Button Height
