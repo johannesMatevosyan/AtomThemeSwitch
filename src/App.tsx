@@ -23,6 +23,7 @@ function App() {
     }
   }
   const getSwitchValues = (type: ThemeType) => console.log(type);
+  const getBrowserMode = (mode: {system: string}) => console.log(mode);
 
   return (
     <>
@@ -33,6 +34,7 @@ function App() {
             switchHeight='64px'
             selectedTheme='selectedTheme'
             onChanged={getSwitchValues}
+            handleBrowserMode={getBrowserMode}
             fixedPosition={fixedPosition}
             customMatTheme={customMatTheme}
             >
