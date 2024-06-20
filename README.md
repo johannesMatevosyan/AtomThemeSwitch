@@ -103,12 +103,17 @@ Then place the code snippet written below in the of needed component to render `
 ## Toggle Between Design Modes
 The switch button enables users to toggle between two design modes, these are: `material` and `space`.
 
+![space-theme](https://github.com/johannesMatevosyan/AtomThemeSwitch/assets/2904795/53d33a83-ee7a-46ce-abc0-5570dff223b3)
+
 ## Flexible Design Customization
 Enhance user experience with our switch button's design customization options. Seamlessly toggle between different shapes - square and round to perfectly complement your application's visual style. 
 
 
 ## Adjustable Switch Button Height
 **AtomThemeSwitch** component offers dynamic height adjustment capabilities using modern CSS features such as `calc()` and `var()`. These functions provide flexibility and ease in customizing the appearance of the switch button to fit your design needs. Thus, by setting values in pixels for `switchHeight` property will adjust the size of entire component on the fly.
+
+![switchHeight](https://github.com/johannesMatevosyan/AtomThemeSwitch/assets/2904795/e360e6dc-cbc0-4e0f-b7e4-d5d1afbbd74e)
+
 
 ## Dynamic variable name for a local storage key 
 By default **AtomThemeSwitch** sets `'theme'` key name in local storage. Meanwhile there might be cases you would like to set anohter name. Thus, user allowed to choose a key name that best fits the context and naming conventions of your project. Feel free to set a custom string value based on your needs by updating `selectedTheme` property.
