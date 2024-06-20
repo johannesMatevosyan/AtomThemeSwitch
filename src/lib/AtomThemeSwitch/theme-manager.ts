@@ -10,7 +10,6 @@ export const getThemeName = (themePreference: string = 'theme') => {
 
 // Setter function
 export const setThemeName = (themePreference: string = 'theme', themeName: string) => {
-console.log('themeName ', themeName)
     if (themeName === 'light' || themeName === 'dark') {
       _theme = themeName;
       if (typeof window !== 'undefined') {
