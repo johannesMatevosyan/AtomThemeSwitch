@@ -114,7 +114,9 @@ Space design provides a more futuristic and open layout, perfect for application
 With this component, you can easily switch between different visual themes, offering a more personalized user experience.
 
 ## Flexible Design Customization
-Enhance user experience with our switch button's design customization options. Seamlessly toggle between different shapes - square and round to perfectly complement your application's visual style. 
+Enhance user experience with our switch button's design customization options. Seamlessly toggle between different shapes - `square`  and `round`  to perfectly complement your application's visual style. 
+
+![chrome_eDOX8U4Jqe](https://github.com/johannesMatevosyan/AtomThemeSwitch/assets/2904795/6dbf04c1-c554-4921-8002-7022033558f6)
 
 
 ## Adjustable Switch Button Height
@@ -124,7 +126,7 @@ Enhance user experience with our switch button's design customization options. S
 
 
 ## Dynamic variable name for a local storage key 
-By default **AtomThemeSwitch** sets `'theme'` key name in local storage. Meanwhile there might be cases you would like to set anohter name. Thus, user allowed to choose a key name that best fits the context and naming conventions of your project. Feel free to set a custom string value based on your needs by updating `selectedTheme` property.
+By default **AtomThemeSwitch** sets `'theme'` key name in local storage. Meanwhile there might be cases you would like to set anohter name. Thus, user allowed to choose a key name that best fits the context and naming conventions of your project. Feel free to set a custom string value based on your needs by updating `selectedTheme`  property.
 
 ```tsx
     <AtomThemeSwitchContext selectedTheme='your-preferred-name'>
@@ -140,6 +142,8 @@ By default **AtomThemeSwitch** sets `'theme'` key name in local storage. Meanwhi
 
 ## Fixed Positioning
 In CSS, the fixed position property is used to position an element relative to the viewport, which means it stays in the same place even if the page is scrolled. In order to make switch button fixed positioned add `fixedPosotion` object provide corresponding entry in component snippet. 
+
+
 
 ***Note:*** If you are going to enable fixed positioning then  `position: 'fixed'` porperty is required, without that the rest of properties in `fixedPosition` object will not work.
 
