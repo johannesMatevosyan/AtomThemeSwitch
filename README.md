@@ -76,11 +76,11 @@ Then place the code snippet written below in the of needed component to render `
 ```tsx
     <AtomThemeSwitchContext>
         <AtomThemeSwitch  
-        designType='material'
-        shape='round'
-        switchHeight='34px'
-        onChanged={getSwitchValues}
-        customMatTheme={customMatTheme}
+          designType='material'
+          shape='round'
+          switchHeight='34px'
+          onChanged={getSwitchValues}
+          customMatTheme={customMatTheme}
         >
         </AtomThemeSwitch>
     </AtomThemeSwitchContext>
@@ -116,10 +116,10 @@ By default **AtomThemeSwitch** sets `'theme'` key name in local storage. Meanwhi
 ```tsx
     <AtomThemeSwitchContext selectedTheme='your-preferred-name'>
         <AtomThemeSwitch  
-        designType='material'
-        shape='round'
-        selectedTheme='your-preferred-name'
-        customMatTheme={customMatTheme}
+          designType='material'
+          shape='round'
+          selectedTheme='your-preferred-name'
+          customMatTheme={customMatTheme}
         >
         </AtomThemeSwitch>
     </AtomThemeSwitchContext>
@@ -146,10 +146,10 @@ Next, include object in the proeprties list of component.
 ```tsx
     <AtomThemeSwitchContext>
         <AtomThemeSwitch  
-        designType='material'
-        shape='round'
-        fixedPosition={fixedPosition}
-        customMatTheme={customMatTheme}
+          designType='material'
+          shape='round'
+          fixedPosition={fixedPosition}
+          customMatTheme={customMatTheme}
         >
         </AtomThemeSwitch>
     </AtomThemeSwitchContext>
@@ -171,10 +171,10 @@ Add `handleBrowserMode` property to **AtomThemeSwitch** component.
 ```tsx
     <AtomThemeSwitchContext>
         <AtomThemeSwitch  
-        designType='material'
-        shape='round'
-        customMatTheme={customMatTheme}
-        handleBrowserMode={getBrowserMode}
+          designType='material'
+          shape='round'
+          customMatTheme={customMatTheme}
+          handleBrowserMode={getBrowserMode}
         >
         </AtomThemeSwitch>
     </AtomThemeSwitchContext>
