@@ -89,15 +89,16 @@ Then place the code snippet written below in the of needed component to render `
 
 # Options available
 
-| Argument        | Type        | Values        |
-| :-------------  |:-----------:|:------------  |
-| designType      | String      | material \| space  |
-| shape           | String      | round  \| square   |
-| switchHeight    | String      | '32px'             |
-| selectedTheme   | String      | 'selectedTheme'    |
-| fixedPosition   | Object      | { **position**: 'fixed', **left**: '0', **bottom**: '0', **right**: '0', **margin**: 'unset',**transform**: 'none'}   |
-| customMatTheme  | Object      |  {  **checked**: { trackColor: 'blue', thumbColor: 'white'},  **unchecked**: {trackColor: '', thumbColor: ''}}|
-| onChanged       | Event       | (type: 'light' \| 'dark') => void    |
+| Argument          | Type        | Values        |
+| :-------------    |:-----------:|:------------  |
+| designType        | String      | material \| space  |
+| shape             | String      | round  \| square   |
+| switchHeight      | String      | '32px'             |
+| selectedTheme     | String      | 'selectedTheme'    |
+| fixedPosition     | Object      | { **position**: 'fixed', **left**: '0', **bottom**: '0', **right**: '0', **margin**: 'unset',**transform**: 'none'}   |
+| customMatTheme    | Object      |  {  **checked**: { trackColor: 'blue', thumbColor: 'white'},  **unchecked**: {trackColor: '', thumbColor: ''}}|
+| onChanged         | Event       | (type: 'light' \| 'dark') => void         |
+| handleBrowserMode | Event       | (type: mode: {system: string}) => void    |
 
 ## Toggle Between Design Modes
 The switch button enables users to toggle between two design modes, these are: `material` and `space`.
@@ -162,6 +163,28 @@ Next, include object in the proeprties list of component.
  - `margin: auto;`: offset the element within mentioned amount.
  - `transform: translate(X, Y);`: This moves the element within its own width and height.
 
+## Detect browser's current mode or theme
+This function retrieves the browser's current mode or theme (e.g., light or dark mode) and sends it to the parent component. It is typically used in a React component to communicate the current theme setting to its parent component, enabling the parent component to update its state or perform other actions based on the theme.
+
+Add `handleBrowserMode` property to **AtomThemeSwitch** component. 
+
+```tsx
+    <AtomThemeSwitchContext>
+        <AtomThemeSwitch  
+        designType='material'
+        shape='round'
+        customMatTheme={customMatTheme}
+        handleBrowserMode={getBrowserMode}
+        >
+        </AtomThemeSwitch>
+    </AtomThemeSwitchContext>
+```
+
+Then define function that will handle result object.
+
+```tsx
+  const getBrowserMode = (mode: {system: string}) => console.log(mode);
+```
 
 ## SVG icons used          
 SVG icons taken from 
