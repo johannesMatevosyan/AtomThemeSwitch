@@ -28,6 +28,7 @@ export interface IAtomThemeSwitch {
     designType: string;
     shape: string;
     switchHeight?: string;
+    selectedTheme?: string;
     fixedPosition?: IFixedPosition;
     customMatTheme?: {
         checked?: IThemeCustomColors,

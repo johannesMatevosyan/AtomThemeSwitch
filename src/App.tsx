@@ -26,11 +26,12 @@ function App() {
 
   return (
     <>
-        <AtomThemeSwitchContext>
+        <AtomThemeSwitchContext selectedTheme='selectedTheme'>
           <AtomThemeSwitch  
             designType='material'
             shape='squere'
             switchHeight='64px'
+            selectedTheme='selectedTheme'
             onChanged={getSwitchValues}
             fixedPosition={fixedPosition}
             customMatTheme={customMatTheme}

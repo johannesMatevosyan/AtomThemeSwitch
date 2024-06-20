@@ -98,10 +98,11 @@ Then place the code snippet written below in the of needed component to render `
 # Options available
 
 | Argument        | Type        | Values        |
-| -------------   |:-----------:|:------------  |
+| :-------------  |:-----------:|:------------  |
 | designType      | String      | material \| space  |
 | shape           | String      | round  \| square   |
-| switchHeight    | String      | '32px'   |
+| switchHeight    | String      | '32px'             |
+| selectedTheme   | String      | 'selectedTheme'    |
 | fixedPosition   | Object      | { **position**: 'fixed', **left**: '0', **bottom**: '0', **right**: '0', **margin**: 'unset',**transform**: 'none'}   |
 | customMatTheme  | Object      |  {  **checked**: { trackColor: 'blue', thumbColor: 'white'},  **unchecked**: {trackColor: '', thumbColor: ''}}|
 | onChanged       | Event       | (type: 'light' \| 'dark') => void    |
@@ -112,8 +113,24 @@ The switch button enables users to toggle between two design modes, these are: `
 ## Flexible Design Customization
 Enhance user experience with our switch button's design customization options. Seamlessly toggle between different shapes - square and round to perfectly complement your application's visual style. 
 
+
 ## Adjustable Switch Button Height
 **AtomThemeSwitch** component offers dynamic height adjustment capabilities using modern CSS features such as `calc()` and `var()`. These functions provide flexibility and ease in customizing the appearance of the switch button to fit your design needs. Thus, by setting values in pixels for `switchHeight` property will adjust the size of entire component on the fly.
+
+## Dynamic variable name for a local storage key 
+By default **AtomThemeSwitch** sets `'theme'` key name in local storage. Meanwhile there might be cases you would like to set anohter name. Thus, user allowed to choose a key name that best fits the context and naming conventions of your project. Feel free to set a custom string value based on your needs by updating `selectedTheme` property.
+
+```tsx
+    <AtomThemeSwitchContext selectedTheme='your-preferred-name'>
+        <AtomThemeSwitch  
+        designType='material'
+        shape='round'
+        selectedTheme='your-preferred-name'
+        customMatTheme={customMatTheme}
+        >
+        </AtomThemeSwitch>
+    </AtomThemeSwitchContext>
+```
 
 ## Fixed Positioning
 In CSS, the fixed position property is used to position an element relative to the viewport, which means it stays in the same place even if the page is scrolled. In order to make switch button fixed positioned add `fixedPosotion` object provide corresponding entry in component snippet. 

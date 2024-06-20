@@ -4,12 +4,21 @@ import MoonIcon from './icons/moon.svg';
 import "./AtomThemeSwitch.css";
 import { AWSContextType, IAtomThemeSwitch, ThemeType } from "./models";
 import ThemeDataContext from "./store/ThemeDataContext";
+import { setThemeName } from "./theme-manager";
 
-const SCHEME = 'prefers-color-scheme'
+const SCHEME = 'prefers-color-scheme';
+const SWH = '--switch-height';
 
 export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | JSXElementConstructor<ReactNode>> => {
 
-    const {onChanged, designType, shape, fixedPosition, switchHeight, customMatTheme} = props;
+    const {
+        onChanged, 
+        designType, 
+        shape, 
+        fixedPosition, 
+        selectedTheme, 
+        switchHeight, 
+        customMatTheme} = props;
     const { theme, setTheme } = useContext<AWSContextType>(ThemeDataContext);
     const [customStyle, setCustomStyle] = useState({
             trackColor: '',
@@ -17,7 +26,7 @@ export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | 
         })
     // Set adjustable height for switch button component    
     useEffect(() => {
-        document.documentElement.style.setProperty('--switch-height', switchHeight ? switchHeight : '32px');
+        document.documentElement.style.setProperty(SWH, switchHeight ? switchHeight : '32px');
     }, [])
     // check and load colors for track and thumb
     useEffect(() => {
@@ -63,7 +72,7 @@ export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | 
     const setThemeData = (name: ThemeType) => {
         setTheme(name);
         if (typeof window !== 'undefined') {
-            window.localStorage.setItem('theme', name);
+            setThemeName(selectedTheme, name);
         }
     }
     // check if colors are set
@@ -91,7 +100,6 @@ export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | 
         margin: `${fixedPosition && fixedPosition.margin ? fixedPosition.margin : 'auto'}`,
         transform: `${fixedPosition && fixedPosition.transform ? fixedPosition.transform : 'none'}`,
     }
-
     const mainClasses = `ats__switch ${designType}`;
 
     return (
