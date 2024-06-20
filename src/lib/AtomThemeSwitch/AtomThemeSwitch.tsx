@@ -35,7 +35,7 @@ export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | 
         const c = {...customMatTheme?.checked};
         const result = checkColors(c)
         setColors(result.c1, result.c2);
-    }, [customMatTheme])
+    }, [])
     // detect current mode of browser
     useEffect(() => {
         const MMD = window.matchMedia;

@@ -76,11 +76,11 @@ Then place the code snippet written below in the of needed component to render `
 ```tsx
     <AtomThemeSwitchContext>
         <AtomThemeSwitch  
-        designType='material'
-        shape='round'
-        switchHeight='34px'
-        onChanged={getSwitchValues}
-        customMatTheme={customMatTheme}
+          designType='material'
+          shape='round'
+          switchHeight='34px'
+          onChanged={getSwitchValues}
+          customMatTheme={customMatTheme}
         >
         </AtomThemeSwitch>
     </AtomThemeSwitchContext>
@@ -100,26 +100,41 @@ Then place the code snippet written below in the of needed component to render `
 | onChanged         | Event       | (type: 'light' \| 'dark') => void         |
 | handleBrowserMode | Event       | (type: mode: {system: string}) => void    |
 
-## Toggle Between Design Modes
-The switch button enables users to toggle between two design modes, these are: `material` and `space`.
+## Design Customization - Toggle Between Different Modes
+The **AtomThemeSwitch** component provides an intuitive way for users to toggle between different visual themes in a React.js application. Hence, the switch button allows users to choose between two distinct design types: Material and Space by setting corresponding value to `designType`property.
+
+Material design offers a clean and modern look, following the principles of Material Design.
+
+![chrome_Ta0SASSZol](https://github.com/johannesMatevosyan/AtomThemeSwitch/assets/2904795/c5e0af75-2705-4843-9c04-8da6ec9887ca)
+
+Space design provides a more futuristic and open layout, perfect for applications needing a unique visual identity.
+
+![space-theme](https://github.com/johannesMatevosyan/AtomThemeSwitch/assets/2904795/53d33a83-ee7a-46ce-abc0-5570dff223b3)
+
+With this component, you can easily switch between different visual themes, offering a more personalized user experience.
 
 ## Flexible Design Customization
-Enhance user experience with our switch button's design customization options. Seamlessly toggle between different shapes - square and round to perfectly complement your application's visual style. 
+Enhance user experience with our switch button's design customization options. Seamlessly toggle between different shapes - `square`  and `round`  to perfectly complement your application's visual style. 
+
+![image](https://github.com/johannesMatevosyan/AtomThemeSwitch/assets/2904795/874e51c4-4c0f-4efe-9224-ba60e39d0321)
 
 
 ## Adjustable Switch Button Height
 **AtomThemeSwitch** component offers dynamic height adjustment capabilities using modern CSS features such as `calc()` and `var()`. These functions provide flexibility and ease in customizing the appearance of the switch button to fit your design needs. Thus, by setting values in pixels for `switchHeight` property will adjust the size of entire component on the fly.
 
+![switchHeight](https://github.com/johannesMatevosyan/AtomThemeSwitch/assets/2904795/176f6124-e3c2-48b6-a81c-4d133d3ef8ba)
+
+
 ## Dynamic variable name for a local storage key 
-By default **AtomThemeSwitch** sets `'theme'` key name in local storage. Meanwhile there might be cases you would like to set anohter name. Thus, user allowed to choose a key name that best fits the context and naming conventions of your project. Feel free to set a custom string value based on your needs by updating `selectedTheme` property.
+By default **AtomThemeSwitch** sets `'theme'` key name in local storage. Meanwhile there might be cases you would like to set anohter name. Thus, user allowed to choose a key name that best fits the context and naming conventions of your project. Feel free to set a custom string value based on your needs by updating `selectedTheme`  property.
 
 ```tsx
     <AtomThemeSwitchContext selectedTheme='your-preferred-name'>
         <AtomThemeSwitch  
-        designType='material'
-        shape='round'
-        selectedTheme='your-preferred-name'
-        customMatTheme={customMatTheme}
+          designType='material'
+          shape='round'
+          selectedTheme='your-preferred-name'
+          customMatTheme={customMatTheme}
         >
         </AtomThemeSwitch>
     </AtomThemeSwitchContext>
@@ -127,6 +142,8 @@ By default **AtomThemeSwitch** sets `'theme'` key name in local storage. Meanwhi
 
 ## Fixed Positioning
 In CSS, the fixed position property is used to position an element relative to the viewport, which means it stays in the same place even if the page is scrolled. In order to make switch button fixed positioned add `fixedPosotion` object provide corresponding entry in component snippet. 
+
+
 
 ***Note:*** If you are going to enable fixed positioning then  `position: 'fixed'` porperty is required, without that the rest of properties in `fixedPosition` object will not work.
 
@@ -146,10 +163,10 @@ Next, include object in the proeprties list of component.
 ```tsx
     <AtomThemeSwitchContext>
         <AtomThemeSwitch  
-        designType='material'
-        shape='round'
-        fixedPosition={fixedPosition}
-        customMatTheme={customMatTheme}
+          designType='material'
+          shape='round'
+          fixedPosition={fixedPosition}
+          customMatTheme={customMatTheme}
         >
         </AtomThemeSwitch>
     </AtomThemeSwitchContext>
@@ -171,10 +188,10 @@ Add `handleBrowserMode` property to **AtomThemeSwitch** component.
 ```tsx
     <AtomThemeSwitchContext>
         <AtomThemeSwitch  
-        designType='material'
-        shape='round'
-        customMatTheme={customMatTheme}
-        handleBrowserMode={getBrowserMode}
+          designType='material'
+          shape='round'
+          customMatTheme={customMatTheme}
+          handleBrowserMode={getBrowserMode}
         >
         </AtomThemeSwitch>
     </AtomThemeSwitchContext>
