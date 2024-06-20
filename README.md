@@ -34,19 +34,11 @@ Compatible with major React frameworks and libraries such as Next.js, Gatsby, an
 
 Our theme switch library is designed to work seamlessly across all major web browsers, ensuring a consistent and reliable user experience for all your site visitors. We continuously test and optimize our library to support the following browsers:
 
-### Web Browsers
-
  - Google Chrome: Latest 2 versions
  - Mozilla Firefox: Latest 2 versions
  - Safari: Latest 2 versions
  - Microsoft Edge: Latest 2 versions
  - Opera: Latest 2 versions
- - Internet Explorer: Version 11 and above (basic support)
-### Mobile Browsers
-
- - Chrome for Android: Latest 2 versions
- - Firefox for Android: Latest 2 versions
- - Safari on iOS: Latest 2 versions
 
 ## Testing and Maintenance
 We rigorously test our library against these browsers to ensure compatibility and performance. As new browser versions are released, we update our testing process to maintain support and address any emerging issues promptly. 
