@@ -103,6 +103,9 @@ Then place the code snippet written below in the of needed component to render `
 ## Toggle Between Design Modes
 The switch button enables users to toggle between two design modes, these are: `material` and `space`.
 
+![chrome_Ta0SASSZol](https://github.com/johannesMatevosyan/AtomThemeSwitch/assets/2904795/c5e0af75-2705-4843-9c04-8da6ec9887ca)
+
+
 ![space-theme](https://github.com/johannesMatevosyan/AtomThemeSwitch/assets/2904795/53d33a83-ee7a-46ce-abc0-5570dff223b3)
 
 ## Flexible Design Customization
