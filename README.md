@@ -55,6 +55,7 @@ Add package imports at the top of your component
 
 ```tsx
 import { AtomThemeSwitch, AtomThemeSwitchContext } from 'atom-theme-switch'
+import 'atom-theme-switch/dist/style.css'
 ```
 Set initial values for property objects.
 ```tsx

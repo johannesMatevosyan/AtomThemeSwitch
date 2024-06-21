@@ -1,7 +1,10 @@
 {
   "name": "atom-theme-switch",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "type": "module",
+  "files": [
+    "dist"
+  ],
   "main": "dist/AtomThemeSwitch.umd.cjs",
   "repository": {
     "type": "git",
