@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { resolve } from 'path'
@@ -31,6 +32,12 @@ export default defineConfig({
           'react/jsx-runtime': 'react/jsx-runtime',
         }
       }
+    },
+    test: {
+      globals: true,
+      environment: 'jsdom',
+      setupFiles: "./lib/test/setup.ts",
+      css: true
     }
   }
 })

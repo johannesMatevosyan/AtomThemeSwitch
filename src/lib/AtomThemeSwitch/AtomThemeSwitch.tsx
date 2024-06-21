@@ -126,7 +126,8 @@ export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | 
                             style={{backgroundColor: customStyle.trackColor ? customStyle.trackColor : ''}}>
                             <span
                                 className="ats__slider-button" 
-                                style={{backgroundColor: customStyle.thumbColor ? customStyle.thumbColor : ''}}></span>
+                                style={{backgroundColor: customStyle.thumbColor ? customStyle.thumbColor : ''}}>
+                            </span>
                         </span>}
             </label>
         </> 
