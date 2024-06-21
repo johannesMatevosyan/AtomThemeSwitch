@@ -9,14 +9,8 @@ Automatically save and load user theme preferences using local storage mechanism
 ## Responsive Design
 Ensure your themes look great on any device. The library is designed with responsive design principles in mind, providing a consistent experience across desktops, tablets, and mobile devices.
 
-## Accessibility Support
-Improve accessibility with high-contrast themes and easy-to-read font options. The library includes features to help you build applications that are accessible to all users, including those with visual impairments.
-
 ## Easy Integration
 Integrate the theme switch functionality into your existing React project with minimal effort. The library is designed to be easy to set up and use, with comprehensive documentation and examples.
-
-## Performance Optimized
-Built with performance in mind, the library ensures that theme switching is fast and does not degrade the performance of your application. Efficient use of resources and optimized rendering ensure a smooth experience.
 
 ## Theming Context API
 Leverage the power of React's Context API to manage theme state globally across your application. The library provides a robust context implementation for managing and accessing theme data.
@@ -50,8 +44,14 @@ To install the package via npm, run the following command:
 npm install atom-theme-switch
 ```
 
+or 
+
+```sh
+yarn add atom-theme-switch
+```
+
 # Inital setup
-Add package imports at the top of your component
+Import package at the top of your component
 
 ```tsx
 import { AtomThemeSwitch, AtomThemeSwitchContext } from 'atom-theme-switch'

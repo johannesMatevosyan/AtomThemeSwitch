@@ -6,17 +6,12 @@ import { setThemeName, getThemeName } from "../theme-manager";
 
 export function AtomThemeSwitchContext(props: ATSContextProps): ReactElement<AWSContextType> {
     const { children, selectedTheme } = props;
-    const [theme, setTheme] = useState<`${ThemeType}`>(ThemeType.LIGHT);
+    const [theme, setTheme] = useState<`${ThemeType}`>(getThemeName(selectedTheme) || ThemeType.LIGHT);
 
     useEffect(() => {
         const result = getThemeName(selectedTheme)
-        if(!result) { // if theme name is not defined then set to 'light'
-          setThemeName(selectedTheme, ThemeType.LIGHT)
-        } else if (result === ThemeType.LIGHT) {
-          setTheme(ThemeType.LIGHT);
-        } else if(result === ThemeType.DARK) {
-          setTheme(ThemeType.DARK);
-        }
+        result === ThemeType.DARK ? setTheme(ThemeType.DARK) : setTheme(ThemeType.LIGHT);
+        setThemeName('theme', result ? result: ThemeType.LIGHT)
       }, [theme]);
 
     return <ThemeDataContext.Provider value={{theme, setTheme}}>
