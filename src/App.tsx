@@ -5,12 +5,9 @@ function App() {
 
   const fixedPosition = {
     position: 'fixed', 
-    top: '0', 
-    left: '0', 
-    bottom: '0', 
-    right: '0', 
+    bottom: '120px',  
+    right: '100px', 
     margin: 'auto',
-    transform: 'translate(-50%, -50%)',
   }
   const customMatTheme = {
     checked: {
@@ -22,17 +19,20 @@ function App() {
       thumbColor: ''
     }
   }
+
+
   const getSwitchValues = (type: ThemeType) => console.log(type);
   const getBrowserMode = (mode: {system: string}) => console.log(mode);
 
   return (
-    <>
-        <AtomThemeSwitchContext selectedTheme='selectedTheme'>
+      <>
+
+
+        <AtomThemeSwitchContext>
           <AtomThemeSwitch  
             designType='material'
             shape='squere'
             switchHeight='64px'
-            selectedTheme='selectedTheme'
             onChanged={getSwitchValues}
             handleBrowserMode={getBrowserMode}
             fixedPosition={fixedPosition}
