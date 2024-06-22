@@ -40,14 +40,13 @@ export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | 
     useEffect(() => {
         const MMD = window.matchMedia;
         const browserMode = MMD?.(`(${SCHEME}: dark)`).matches ? "dark" : "light" 
+
+        if(!handleBrowserMode) return;
+        
         if (browserMode === 'dark') {
-            if(handleBrowserMode) {
-                handleBrowserMode({system: 'dark'})
-            }
+            handleBrowserMode({system: 'dark'})
         } else if (browserMode === 'light') {
-            if(handleBrowserMode) {
-                handleBrowserMode({system: 'light'})
-            }
+            handleBrowserMode({system: 'light'})
         }
     }, [])
     // toggle between on/off states
@@ -95,12 +94,12 @@ export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | 
     const position: ('absolute' | 'relative' | 'fixed') = 'fixed' 
     const labelStyle: CSSProperties  = {
         position: `${fixedPosition && fixedPosition.position ? position : 'static'}`,
-        top: `${fixedPosition && fixedPosition.top ? fixedPosition.top : 'unset'}`,
-        left: `${fixedPosition && fixedPosition.left ? fixedPosition.left : 'unset'}`,
-        right: `${fixedPosition && fixedPosition.right ? fixedPosition.right : 'unset'}`,
-        bottom: `${fixedPosition && fixedPosition.bottom ? fixedPosition.bottom : 'unset'}`,
-        margin: `${fixedPosition && fixedPosition.margin ? fixedPosition.margin : 'auto'}`,
-        transform: `${fixedPosition && fixedPosition.transform ? fixedPosition.transform : 'none'}`,
+        top: `${fixedPosition && fixedPosition.top ? fixedPosition.top : undefined}`,
+        left: `${fixedPosition && fixedPosition.left ? fixedPosition.left : undefined}`,
+        right: `${fixedPosition && fixedPosition.right ? fixedPosition.right : undefined}`,
+        bottom: `${fixedPosition && fixedPosition.bottom ? fixedPosition.bottom : undefined}`,
+        margin: `${fixedPosition && fixedPosition.margin ? fixedPosition.margin : undefined}`,
+        transform: `${fixedPosition && fixedPosition.transform ? fixedPosition.transform : undefined}`,
     }
     const mainClasses = `ats__switch ${designType}`;
 
