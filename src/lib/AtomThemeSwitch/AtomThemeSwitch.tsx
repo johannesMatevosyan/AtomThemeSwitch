@@ -32,7 +32,7 @@ export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | 
     }, [])
     // check and load colors for track and thumb
     useEffect(() => {
-        const c = {...customMatTheme?.checked};
+        const c = theme === ThemeType.DARK ? {...customMatTheme?.checked} : {...customMatTheme?.unchecked} ;
         const result = checkColors(c)
         setColors(result.c1, result.c2);
     }, [])
@@ -42,7 +42,7 @@ export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | 
         const browserMode = MMD?.(`(${SCHEME}: dark)`).matches ? "dark" : "light" 
 
         if(!handleBrowserMode) return;
-        
+
         if (browserMode === 'dark') {
             handleBrowserMode({system: 'dark'})
         } else if (browserMode === 'light') {
