@@ -2,9 +2,11 @@ import { CSSProperties, ChangeEvent, JSXElementConstructor, ReactElement, ReactN
 import SunIcon from './icons/Sun.svg'; 
 import MoonIcon from './icons/moon.svg';
 import "./AtomThemeSwitch.css";
-import { AWSContextType, IAtomThemeSwitch, ICheckColors, ICheckedColors, ThemeType } from "./models";
-import ThemeDataContext from "./store/ThemeDataContext";
+import { ThemeType } from "./models/themeTypes";
+import { AWSContextType } from "./models/models";
+import { IAtomThemeSwitch, ICheckColors, ICheckedColors } from "./models/themeInterfaces";
 import { setThemeName } from "./theme-manager";
+import { ThemeDataContext } from "./store/AtomThemeProvider";
 
 const SCHEME = 'prefers-color-scheme';
 const SWH = '--switch-height';
@@ -21,7 +23,7 @@ export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | 
         onChanged, 
         handleBrowserMode
     } = props;
-    const { theme, setTheme } = useContext<AWSContextType>(ThemeDataContext);
+    const { state, dispatch } = useContext<AWSContextType>(ThemeDataContext);
     const [customStyle, setCustomStyle] = useState<ICheckColors>({
             trackColor: '',
             thumbColor: ''
@@ -32,7 +34,7 @@ export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | 
     }, [])
     // check and load colors for track and thumb
     useEffect(() => {
-        const c = theme === ThemeType.DARK ? {...customMatTheme?.checked} : {...customMatTheme?.unchecked} ;
+        const c = state.theme === ThemeType.DARK ? {...customMatTheme?.checked} : {...customMatTheme?.unchecked} ;
         const result = checkColors(c)
         setColors(result.c1, result.c2);
     }, [])
@@ -68,10 +70,10 @@ export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | 
     const handleChange = (type: boolean): void => {
         if(onChanged) {
             onChanged(type ? ThemeType.DARK : ThemeType.LIGHT);
+            dispatch({ type: 'TOGGLE_THEME' })
         }
     }
     const setThemeData = (name: ThemeType): void => {
-        setTheme(name);
         if (typeof window !== 'undefined') {
             setThemeName(selectedTheme, name);
         }
@@ -108,11 +110,11 @@ export const AtomThemeSwitch = (props: IAtomThemeSwitch): ReactElement<string | 
             <label 
                 className={mainClasses} 
                 style={fixedPosition && fixedPosition.position ? labelStyle : {}}
-                title={`${theme} theme`}>
+                title={`${state?.theme} theme`}>
                 <input 
                     type="checkbox"
                     onChange={(e) => onThemeChange(e)} 
-                    checked={theme === ThemeType.DARK ? true : false} />
+                    checked={state?.theme === ThemeType.DARK ? true : false} />
                     {designType && designType === 'space' ? (
                         <>
                             <span className="ats__space-bg"></span>

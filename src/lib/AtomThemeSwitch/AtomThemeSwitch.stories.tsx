@@ -1,13 +1,13 @@
 import { Meta, StoryFn } from '@storybook/react';
 import { AtomThemeSwitch } from './AtomThemeSwitch';
-import { AtomThemeSwitchContext } from './store/AtomThemeSwitchContext';
-import { IAtomThemeSwitch } from './models';
+import { AtomThemeProvider } from './store/AtomThemeProvider';
+import { IAtomThemeSwitch } from './models/themeInterfaces';
 
 const meta: Meta<typeof AtomThemeSwitch> = {
     title: 'Switch theme',
     component: AtomThemeSwitch,
     decorators : [
-        (Story) => (<AtomThemeSwitchContext><Story/></AtomThemeSwitchContext>)
+        (Story) => (<AtomThemeProvider><Story/></AtomThemeProvider>)
     ],
     argTypes: {
         designType: {
@@ -24,6 +24,11 @@ const meta: Meta<typeof AtomThemeSwitch> = {
             control: {
                 type: 'radio'
             }
+        },
+        switchHeight: {
+            type: 'string',
+            description: 'Provide adjustable height for switch button',
+            defaultValue: '32px',
         },
         selectedTheme: {
             type: 'string',
@@ -76,6 +81,7 @@ export const SelectedTheme = Template.bind({});
 MaterialTheme.args = {
     shape: 'round',
     designType: 'material',
+    switchHeight: '64px',
     checked: false,
     onChanged: () => {}
 };
@@ -83,6 +89,7 @@ MaterialTheme.args = {
 Square.args = {
     shape: 'square',
     designType: 'material',
+    switchHeight: '64px',
     checked: true,
     onChanged: () => {}
 }
@@ -90,6 +97,7 @@ Square.args = {
 SpaceTheme.args = {
     shape: 'round',
     designType: 'space',
+    switchHeight: '64px',
     checked: true,
     onChanged: () => {}
 }
@@ -97,6 +105,7 @@ SpaceTheme.args = {
 FixedPosition.args = {
     shape: 'round',
     designType: 'space',
+    switchHeight: '64px',
     fixedPosition: fixedPosition,
     onChanged: () => {}
 }
@@ -104,6 +113,7 @@ FixedPosition.args = {
 CustomMatTheme.args = {
     shape: 'round',
     designType: 'material',
+    switchHeight: '64px',
     customMatTheme: customMatTheme,
     onChanged: () => {}
 }
@@ -112,6 +122,7 @@ SelectedTheme.args = {
     shape: 'round',
     designType: 'material',
     selectedTheme: 'selectedTheme',
+    switchHeight: '64px',
     customMatTheme: customMatTheme,
     onChanged: () => {}
 }

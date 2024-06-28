@@ -1,5 +1,5 @@
-import { AtomThemeSwitch, AtomThemeSwitchContext } from 'atom-theme-switch'
-import { ThemeType } from './lib/AtomThemeSwitch/models';
+import { AtomThemeSwitch, AtomThemeProvider } from 'atom-theme-switch'
+import { ThemeType } from './lib/AtomThemeSwitch/models/themeTypes';
 
 function App() {
 
@@ -20,26 +20,24 @@ function App() {
     }
   }
 
-
   const getSwitchValues = (type: ThemeType) => console.log(type);
   const getBrowserMode = (mode: {system: string}) => console.log(mode);
 
   return (
       <>
-
-
-        <AtomThemeSwitchContext>
-          <AtomThemeSwitch  
-            designType='material'
-            shape='squere'
-            switchHeight='64px'
-            onChanged={getSwitchValues}
-            handleBrowserMode={getBrowserMode}
-            fixedPosition={fixedPosition}
-            customMatTheme={customMatTheme}
-            >
+        <AtomThemeProvider>
+            <AtomThemeSwitch  
+              designType='space'
+              shape='squere'
+              switchHeight='84px'
+              onChanged={getSwitchValues}
+              handleBrowserMode={getBrowserMode}
+              fixedPosition={fixedPosition}
+              customMatTheme={customMatTheme}
+              selectedTheme='some-key-to-have'
+              >
             </AtomThemeSwitch>
-        </AtomThemeSwitchContext>
+        </AtomThemeProvider>
 
     </>
   )

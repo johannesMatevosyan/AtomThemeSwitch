@@ -1,4 +1,4 @@
-import { ThemeType } from "./models";
+import { ThemeType } from "./models/themeTypes";
 
 let _theme: ThemeType;
 

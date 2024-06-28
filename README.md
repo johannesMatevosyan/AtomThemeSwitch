@@ -54,7 +54,7 @@ yarn add atom-theme-switch
 Import package at the top of your component
 
 ```tsx
-import { AtomThemeSwitch, AtomThemeSwitchContext } from 'atom-theme-switch'
+import { AtomThemeSwitch, AtomThemeProvider } from 'atom-theme-switch'
 import 'atom-theme-switch/dist/style.css'
 ```
 Set initial values for property objects.
@@ -75,7 +75,7 @@ Set initial values for property objects.
 Then place the code snippet written below in the of needed component to render `AtomThemeSwitch` library:
 
 ```tsx
-    <AtomThemeSwitchContext>
+    <AtomThemeProvider>
         <AtomThemeSwitch  
           designType='material'
           shape='round'
@@ -84,7 +84,7 @@ Then place the code snippet written below in the of needed component to render `
           customMatTheme={customMatTheme}
         >
         </AtomThemeSwitch>
-    </AtomThemeSwitchContext>
+    </AtomThemeProvider>
 ```
 
 
@@ -130,7 +130,7 @@ Enhance user experience with our switch button's design customization options. S
 By default **AtomThemeSwitch** sets `'theme'` key name in local storage. Meanwhile there might be cases you would like to set anohter name. Thus, user allowed to choose a key name that best fits the context and naming conventions of your project. Feel free to set a custom string value based on your needs by updating `selectedTheme`  property.
 
 ```tsx
-    <AtomThemeSwitchContext selectedTheme='your-preferred-name'>
+    <AtomThemeProvider selectedTheme='your-preferred-name'>
         <AtomThemeSwitch  
           designType='material'
           shape='round'
@@ -138,7 +138,7 @@ By default **AtomThemeSwitch** sets `'theme'` key name in local storage. Meanwhi
           customMatTheme={customMatTheme}
         >
         </AtomThemeSwitch>
-    </AtomThemeSwitchContext>
+    </AtomThemeProvider>
 ```
 
 ## Fixed Positioning
@@ -162,7 +162,7 @@ In CSS, the fixed position property is used to position an element relative to t
 Next, include object in the proeprties list of component.
 
 ```tsx
-    <AtomThemeSwitchContext>
+    <AtomThemeProvider>
         <AtomThemeSwitch  
           designType='material'
           shape='round'
@@ -170,7 +170,7 @@ Next, include object in the proeprties list of component.
           customMatTheme={customMatTheme}
         >
         </AtomThemeSwitch>
-    </AtomThemeSwitchContext>
+    </AtomThemeProvider>
 ```
 
  - `position: fixed;`: This positions the element relative to the browser window (viewport).
@@ -187,7 +187,7 @@ This function retrieves the browser's current mode or theme (e.g., light or dark
 Add `handleBrowserMode` property to **AtomThemeSwitch** component. 
 
 ```tsx
-    <AtomThemeSwitchContext>
+    <AtomThemeProvider>
         <AtomThemeSwitch  
           designType='material'
           shape='round'
@@ -195,7 +195,7 @@ Add `handleBrowserMode` property to **AtomThemeSwitch** component.
           handleBrowserMode={getBrowserMode}
         >
         </AtomThemeSwitch>
-    </AtomThemeSwitchContext>
+    </AtomThemeProvider>
 ```
 
 Then define function that will handle result object.
