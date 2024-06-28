@@ -1,19 +1,4 @@
-import { ReactNode } from "react";
-
-export enum ThemeType {
-    LIGHT = 'light',
-    DARK = 'dark',
-}
-
-export interface AWSContextType {
-    theme: string;
-    setTheme: (name: ThemeType) => void;
-}
-
-export interface IThemeCustomColors {
-    trackColor?: string, 
-    thumbColor?: string
-}
+import { ThemeType } from "./themeTypes";
 
 export interface IFixedPosition {
     position?: string,
@@ -23,6 +8,21 @@ export interface IFixedPosition {
     bottom?: string,
     margin?: string,
     transform?: string,
+}
+
+export interface ICheckColors {
+    trackColor?: string, 
+    thumbColor?: string
+}
+
+export interface ICheckedColors {
+    c1: string, 
+    c2: string
+}
+
+export interface IThemeCustomColors {
+    trackColor?: string, 
+    thumbColor?: string
 }
 
 export interface IAtomThemeSwitch {
@@ -39,18 +39,3 @@ export interface IAtomThemeSwitch {
     onChanged?: (type: ThemeType) => void;
     handleBrowserMode?: (mode: {system: string}) => void;
 }
-
-export interface ICheckColors {
-    trackColor?: string, 
-    thumbColor?: string
-}
-
-export interface ICheckedColors {
-    c1: string, 
-    c2: string
-}
-
-export type ATSContextProps = {
-  selectedTheme?: string;
-  children: ReactNode;
-};

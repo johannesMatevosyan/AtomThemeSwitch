@@ -1,2 +1,2 @@
 export { AtomThemeSwitch } from "./AtomThemeSwitch/AtomThemeSwitch";
-export { AtomThemeSwitchContext } from "./AtomThemeSwitch/store/AtomThemeSwitchContext";
+export { AtomThemeProvider } from "./AtomThemeSwitch/store/AtomThemeProvider";
