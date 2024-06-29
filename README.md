@@ -59,6 +59,11 @@ import 'atom-theme-switch/dist/style.css'
 ```
 Set initial values for property objects.
 ```tsx
+  export enum ThemeType {
+    LIGHT = 'light',
+    DARK = 'dark',
+  }
+
   const customMatTheme = {
     checked: {
       trackColor: 'blue', 
@@ -69,6 +74,7 @@ Set initial values for property objects.
       thumbColor: ''
     }
   }
+  
   const getSwitchValues = (type: ThemeType) => console.log(type);
 ```
 
